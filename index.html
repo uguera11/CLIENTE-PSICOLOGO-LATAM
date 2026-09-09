@@ -33,6 +33,7 @@
       --sans: "Manrope", Arial, sans-serif;
       --ease: cubic-bezier(.22, 1, .36, 1);
       --radius: 3px;
+      --section-space: 128px;
     }
 
     * { box-sizing: border-box; }
@@ -61,7 +62,7 @@
     }
 
     .container { width: min(1280px, calc(100% - 48px)); margin: 0 auto; }
-    .section { padding: 128px 0; position: relative; }
+    .section { padding: var(--section-space,128px) 0; position: relative; }
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -1044,7 +1045,7 @@
       </div>
     </section>
 
-    <section class="section approach">
+    <section class="section approach" id="enfoque">
       <div class="container approach-inner">
         <div>
           <div class="eyebrow" data-reveal>Enfoque profesional</div>
@@ -1210,7 +1211,8 @@ const defaults={
   instagram:'https://www.instagram.com/psicologo_mauricioberon/',facebook:'https://www.facebook.com/LicBeron/',tiktok:'https://www.tiktok.com/@licmauricioberon',youtube:'',
   contactHeadlineHtml:'¿Necesita realizar una <em>consulta?</em>',
   contactIntro:'Puede escribir directamente por WhatsApp indicando brevemente el motivo de su consulta: atención clínica, asunto jurídico-forense o formación profesional.',
-  privacyText:'Privacidad: los datos enviados se utilizarán únicamente para responder su consulta profesional y no serán publicados ni cedidos con fines comerciales.'
+  privacyText:'Privacidad: los datos enviados se utilizarán únicamente para responder su consulta profesional y no serán publicados ni cedidos con fines comerciales.',
+  themeInk:'#101820',themeInkSoft:'#202a33',themePaper:'#f7f7f4',themePaper2:'#efefeb',themeAccent:'#33424f',themeWarm:'#ad8663',headingFont:'Cormorant Garamond',bodyFont:'Manrope',layoutDensity:'balanced',cornerStyle:'subtle',heroLayout:'balanced',showProfile:true,showAreas:true,showClinical:true,showForensic:true,showFormation:true,showCredentials:true,showApproach:true,showOffice:true,showFaq:true,showContact:true
 };
 const client=(cfg.supabaseUrl&&cfg.supabaseAnonKey&&window.supabase)?window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey):null;
 const clone=v=>JSON.parse(JSON.stringify(v));
@@ -1220,7 +1222,10 @@ async function getSettings(){if(client){const {data,error}=await client.from('si
 async function saveSettings(data){const merged={...defaults,...data};if(client){const {error}=await client.from('site_settings').upsert({id:'main',data:merged,updated_at:new Date().toISOString()});if(error)throw error;return merged}localSet(merged);return merged}
 async function uploadImage(file,prefix='site'){if(!file)return'';if(client){const ext=(file.name.split('.').pop()||'jpg').toLowerCase();const path=`${prefix}-${Date.now()}.${ext}`;const {error}=await client.storage.from('site-images').upload(path,file,{upsert:false});if(error)throw error;return client.storage.from('site-images').getPublicUrl(path).data.publicUrl}return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)})}
 function setText(id,v,html=false){const el=document.getElementById(id);if(el&&v){if(html)el.innerHTML=v;else el.textContent=v}}
-function applyHome(s){s={...defaults,...s};setText('heroEyebrow',s.heroEyebrow);setText('heroTitle',s.heroTitleHtml,true);setText('heroSubheadline',s.heroSubheadline);setText('officeTitle',s.officeTitle);setText('officeDescription',s.officeDescription);setText('officeLocation',s.address);setText('contactHeadline',s.contactHeadlineHtml,true);setText('contactIntro',s.contactIntro);setText('privacyText',s.privacyText);const hi=document.getElementById('heroImage');if(hi&&s.heroImageUrl)hi.src=s.heroImageUrl;const oi=document.getElementById('officeMainImage');if(oi&&s.officeImageUrl)oi.src=s.officeImageUrl;const contact=document.getElementById('profileContactDetails');if(contact){const parts=[];if(s.address)parts.push(`<span>${esc(s.address)}</span>`);if(s.email)parts.push(`<a href="mailto:${escAttr(s.email)}">${esc(s.email)}</a>`);const socials=[['Instagram',s.instagram],['Facebook',s.facebook],['TikTok',s.tiktok],['YouTube',s.youtube]].filter(x=>x[1]);if(socials.length)parts.push(`<div class="social-contact-links">${socials.map(([n,u])=>`<a href="${escAttr(u)}" target="_blank" rel="noopener">${n}</a>`).join('')}</div>`);contact.innerHTML=parts.join('')}}
+function hexRgba(hex,a){const h=String(hex||'').replace('#','').trim();if(!/^[0-9a-f]{6}$/i.test(h))return`rgba(16,24,32,${a})`;const n=parseInt(h,16);return`rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`}
+function fontStack(name,kind){const safe=String(name||'').replace(/["']/g,'');return`"${safe}",${kind==='serif'?'Georgia,serif':'Arial,sans-serif'}`}
+function applyTheme(s){s={...defaults,...s};const r=document.documentElement.style;r.setProperty('--ink',s.themeInk);r.setProperty('--ink-soft',s.themeInkSoft);r.setProperty('--paper',s.themePaper);r.setProperty('--paper-2',s.themePaper2);r.setProperty('--sage-dark',s.themeAccent);r.setProperty('--warm',s.themeWarm);r.setProperty('--line',hexRgba(s.themeInk,.14));r.setProperty('--line-dark','rgba(255,255,255,.15)');r.setProperty('--serif',fontStack(s.headingFont,'serif'));r.setProperty('--sans',fontStack(s.bodyFont,'sans'));r.setProperty('--section-space',s.layoutDensity==='compact'?'92px':s.layoutDensity==='spacious'?'154px':'128px');r.setProperty('--radius',s.cornerStyle==='square'?'0px':s.cornerStyle==='rounded'?'18px':'3px');let style=document.getElementById('admin-theme-overrides');if(!style){style=document.createElement('style');style.id='admin-theme-overrides';document.head.appendChild(style)}const heroCols=s.heroLayout==='text'?'minmax(0,1.2fr) minmax(340px,.8fr)':s.heroLayout==='image'?'minmax(0,.85fr) minmax(430px,1.15fr)':'minmax(0,1.05fr) minmax(380px,.95fr)';style.textContent=`@media(min-width:901px){.hero-grid{grid-template-columns:${heroCols}!important}}.btn,.office-chip,.office-card-premium,.office-note-card{border-radius:var(--radius)!important}.hero-media{border-radius:var(--radius)!important;overflow:hidden}`;const map={perfil:s.showProfile,areas:s.showAreas,clinica:s.showClinical,forense:s.showForensic,formacion:s.showFormation,trayectoria:s.showCredentials,enfoque:s.showApproach,consultorio:s.showOffice,preguntas:s.showFaq,contacto:s.showContact};Object.entries(map).forEach(([id,on])=>{const el=document.getElementById(id);if(el)el.style.display=on===false?'none':''});document.querySelectorAll('a[href^="#"]').forEach(a=>{const id=(a.getAttribute('href')||'').slice(1);if(id&&id in map)a.style.display=map[id]===false?'none':''})}
+function applyHome(s){applyTheme(s);s={...defaults,...s};setText('heroEyebrow',s.heroEyebrow);setText('heroTitle',s.heroTitleHtml,true);setText('heroSubheadline',s.heroSubheadline);setText('officeTitle',s.officeTitle);setText('officeDescription',s.officeDescription);setText('officeLocation',s.address);setText('contactHeadline',s.contactHeadlineHtml,true);setText('contactIntro',s.contactIntro);setText('privacyText',s.privacyText);const hi=document.getElementById('heroImage');if(hi&&s.heroImageUrl)hi.src=s.heroImageUrl;const oi=document.getElementById('officeMainImage');if(oi&&s.officeImageUrl)oi.src=s.officeImageUrl;const contact=document.getElementById('profileContactDetails');if(contact){const parts=[];if(s.address)parts.push(`<span>${esc(s.address)}</span>`);if(s.email)parts.push(`<a href="mailto:${escAttr(s.email)}">${esc(s.email)}</a>`);const socials=[['Instagram',s.instagram],['Facebook',s.facebook],['TikTok',s.tiktok],['YouTube',s.youtube]].filter(x=>x[1]);if(socials.length)parts.push(`<div class="social-contact-links">${socials.map(([n,u])=>`<a href="${escAttr(u)}" target="_blank" rel="noopener">${n}</a>`).join('')}</div>`);contact.innerHTML=parts.join('')}}
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function escAttr(v){return esc(v)}
 function sourceInfo(){const q=new URLSearchParams(location.search);let source=q.get('utm_source')||'';let medium=q.get('utm_medium')||'';let campaign=q.get('utm_campaign')||'';let ref='';try{ref=document.referrer?new URL(document.referrer).hostname:''}catch(_){ref=''}if(!source)source=ref||'direct';return{source,medium,campaign,referrer:ref}}
 async function trackVisit(){if(!client)return;const key='mbv:'+location.pathname+location.search;try{if(sessionStorage.getItem(key))return;sessionStorage.setItem(key,'1')}catch(_){}const s=sourceInfo();try{await client.from('site_visits').insert({page:location.pathname||'/',source:s.source,medium:s.medium||null,campaign:s.campaign||null,referrer:s.referrer||null})}catch(e){console.warn('Stats:',e.message||e)}}
