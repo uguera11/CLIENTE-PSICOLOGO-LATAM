@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel | Mauricio Berón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101820;--ink2:#202a33;--paper:#f4f5f2;--white:#fff;--line:rgba(16,24,32,.13);--muted:#69737c;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Manrope",Arial,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.shell{min-height:100vh;display:grid;grid-template-columns:300px 1fr}.side{background:var(--ink);color:#fff;padding:28px 22px;position:sticky;top:0;height:100vh;overflow:auto}.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border:1px solid #fff;display:grid;place-items:center;font-family:var(--serif);font-size:18px}.brand strong{display:block;font-size:13px}.brand small{display:block;font-size:9px;color:#a9b2b8;text-transform:uppercase;letter-spacing:.13em;margin-top:3px}.side p{font-size:11px;line-height:1.65;color:#9ca6ad}.nav{display:grid;gap:8px;margin:28px 0}.nav button{width:100%;text-align:left;border:1px solid rgba(255,255,255,.13);background:transparent;color:#dbe0e3;padding:13px 14px;cursor:pointer;font-size:12px}.nav button.active{background:#fff;color:var(--ink);border-color:#fff}.main{padding:34px;max-width:1180px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:22px;align-items:center;margin-bottom:24px}.top h1{font-family:var(--serif);font-size:46px;font-weight:500;margin:0}.eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:#7c868d;font-weight:700}.btn{min-height:44px;padding:0 17px;border:1px solid var(--line);background:#fff;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:700;cursor:pointer}.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.btn.ghost{background:transparent}.card{background:#fff;border:1px solid var(--line);padding:26px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#66717a;font-weight:700}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fafafa;padding:12px 13px;color:var(--ink);outline:none;font-size:13px}.field textarea{min-height:110px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#697780;background:#fff}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}.msg{font-size:12px;color:#53606a;min-height:20px;margin:10px 0}.msg.error{color:#9d3030}.course-layout{display:grid;grid-template-columns:280px 1fr;gap:18px}.course-list{display:grid;gap:8px}.course-item{background:#fff;border:1px solid var(--line);padding:13px;cursor:pointer}.course-item.active{border-color:var(--ink);box-shadow:inset 3px 0 0 var(--ink)}.course-item strong{display:block;font-size:12px;line-height:1.45}.course-item small{display:block;color:#7b858d;font-size:9px;margin-top:5px}.check-row{display:flex;gap:16px;flex-wrap:wrap}.check{display:flex;align-items:center;gap:7px;font-size:11px}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}.stat{background:#fff;border:1px solid var(--line);padding:22px}.stat strong{font-family:var(--serif);font-size:44px;font-weight:500;display:block}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#7b858d}.table{background:#fff;border:1px solid var(--line);padding:22px}.bar{display:grid;grid-template-columns:170px 1fr 60px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:11px}.bar:last-child{border-bottom:0}.track{height:6px;background:#eceeeb}.fill{height:100%;background:var(--ink)}.login{max-width:440px;margin:90px auto;background:#fff;border:1px solid var(--line);padding:34px}.login h1{font-family:var(--serif);font-size:48px;font-weight:500;margin:0 0 10px}.login p{font-size:12px;line-height:1.65;color:#68727a}.login-note{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:10px!important;color:#889198!important}.status-dot{width:7px;height:7px;border-radius:50%;display:inline-block;background:#69a273;margin-right:6px}.loading{opacity:.6;pointer-events:none}@media(max-width:900px){.shell{grid-template-columns:1fr}.side{position:static;height:auto}.nav{grid-template-columns:repeat(3,1fr)}.main{padding:24px}.course-layout{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid{grid-template-columns:1fr}.field.full{grid-column:1}.nav{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.stats-grid{grid-template-columns:1fr}.bar{grid-template-columns:110px 1fr 40px}.login{margin:40px 16px;padding:28px}.login h1{font-size:42px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+window.SITE_CONFIG={
+  adminApiUrl:'https://ywqycvgqmxvyiatybzms.supabase.co/functions/v1/admin-api',
+  supabaseAnonKey:'sb_publishable_PV3e8kaqOUfGVazWUP3f2Q_4L5Zfklj',
+  storageBucket:'course-images',
+  siteName:'Lic. Mauricio Berón',
+  whatsapp:'59899462504',
+  email:'mauricioberon@yahoo.com'
+};
+</script>
+<script>
+(()=>{
+'use strict';
+const cfg=window.SITE_CONFIG||{};
+const app=document.getElementById('app');
+const TOKEN_KEY='mb_direct_admin_token_v1';
+let tab='site',courses=[],current=null,site={};
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const escAttr=esc;
+const defaults={
+  heroEyebrow:'Psicología con experiencia, criterio y profundidad',
+  heroTitleHtml:'Comprender la complejidad. <em>Intervenir con rigor.</em>',
+  heroSubheadline:'Atención clínica especializada y asesoramiento pericial forense. Más de 22 años de trayectoria aportando rigor técnico, profundidad y criterio.',
+  heroImageUrl:'',
+  officeTitle:'Un espacio sobrio, reservado y pensado para la conversación.',
+  officeDescription:'El entorno de trabajo acompaña el encuadre profesional: privacidad, calma y una atmósfera serena, lejos de una estética hospitalaria.',
+  officeImageUrl:'',
+  address:'Andes 1365, consultorio 813, esquina 18 de Julio',
+  email:'mauricioberon@yahoo.com',
+  whatsapp:'59899462504',
+  instagram:'https://www.instagram.com/psicologo_mauricioberon/',
+  facebook:'https://www.facebook.com/LicBeron/',
+  tiktok:'https://www.tiktok.com/@licmauricioberon',
+  youtube:'',
+  contactHeadlineHtml:'¿Necesita realizar una <em>consulta?</em>',
+  contactIntro:'Puede escribir directamente por WhatsApp indicando brevemente el motivo de su consulta: atención clínica, asunto jurídico-forense o formación profesional.',
+  privacyText:'Privacidad: los datos enviados se utilizarán únicamente para responder su consulta profesional y no serán publicados ni cedidos con fines comerciales.'
+};
+
+function token(){try{return localStorage.getItem(TOKEN_KEY)||''}catch(_){return''}}
+function setToken(v){try{if(v)localStorage.setItem(TOKEN_KEY,v);else localStorage.removeItem(TOKEN_KEY)}catch(_){}}
+async function api(action,payload={},auth=true){
+  const headers={'Content-Type':'application/json'};
+  if(cfg.supabaseAnonKey)headers.apikey=cfg.supabaseAnonKey;
+  if(auth&&token())headers.Authorization='Bearer '+token();
+  let res;
+  try{res=await fetch(cfg.adminApiUrl,{method:'POST',headers,body:JSON.stringify({action,...payload})})}
+  catch(_){throw new Error('No se pudo conectar con el panel. Intente nuevamente.')}
+  let data={};try{data=await res.json()}catch(_){}
+  if(!res.ok){if(res.status===401&&auth)setToken('');throw new Error(data.error||'No se pudo completar la operación.')}
+  return data;
+}
+const AdminAPI={
+  async login(username,password){const d=await api('login',{username,password},false);setToken(d.token||'');return d},
+  async session(){if(!token())return null;try{return await api('session')}catch(_){setToken('');return null}},
+  logout(){setToken('')},
+  async getSettings(){const d=await api('get_settings');return {...defaults,...(d.settings||{})}},
+  async saveSettings(settings){const d=await api('save_settings',{settings});return {...defaults,...(d.settings||settings)}},
+  async listCourses(publishedOnly=false){const d=await api('list_courses',{publishedOnly});return d.courses||[]},
+  async upsertCourse(course){const d=await api('upsert_course',{course});return d.course},
+  async deleteCourse(id){return api('delete_course',{id})},
+  async setFeatured(id){const d=await api('set_featured',{id});return d.course},
+  async getStats(days=30){const d=await api('get_stats',{days});return d.visits||[]},
+  async uploadImage(file,bucket,slug='imagen'){
+    if(!file)return'';
+    const prepared=await prepareImage(file);
+    const d=await api('upload_image',{bucket,filename:(cleanSlug(slug)||'imagen')+'.webp',mime:prepared.mime,base64:prepared.base64});
+    return d.url||'';
+  }
+};
+
+function cleanSlug(s=''){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function fileToDataUrl(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result||''));r.onerror=rej;r.readAsDataURL(blob)})}
+function imageFromFile(file){return new Promise((res,rej)=>{const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{URL.revokeObjectURL(url);res(img)};img.onerror=()=>{URL.revokeObjectURL(url);rej(new Error('No se pudo leer la imagen.'))};img.src=url})}
+async function prepareImage(file){
+  if(!String(file.type||'').startsWith('image/'))throw new Error('Seleccione una imagen válida.');
+  const img=await imageFromFile(file),max=1800,scale=Math.min(1,max/Math.max(img.naturalWidth||1,img.naturalHeight||1));
+  const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+  const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);
+  const blob=await new Promise(res=>canvas.toBlob(res,'image/webp',.84));if(!blob)throw new Error('No se pudo procesar la imagen.');
+  const dataUrl=await fileToDataUrl(blob);return{mime:'image/webp',base64:dataUrl.split(',')[1]||''};
+}
+function blank(){return{id:'',slug:'',title:'',type:'Masterclass',short_description:'',description:'',program:'',date:'',time:'',duration:'',modality:'Online',location:'Online',price:'',currency:'UYU',certificate:null,purchase_url:'',image_url:'',status:'published',featured:false,order_index:1}}
+
+function login(){
+  app.innerHTML=`<div class="login"><div class="eyebrow">Administración</div><h1>Panel del sitio</h1><p>Acceso directo para editar contenidos, cursos, imágenes y estadísticas.</p><div class="field"><label>Usuario</label><input id="lu" type="text" value="admin" autocomplete="username"></div><div class="field" style="margin-top:12px"><label>Contraseña</label><input id="lp" type="password" autocomplete="current-password"></div><button class="btn dark" style="width:100%;margin-top:18px" id="lb">Ingresar</button><div class="msg" id="lm"></div><p class="login-note"><span class="status-dot"></span>Acceso independiente. No necesita ingresar a Supabase ni solicitar enlaces por correo.</p></div>`;
+  const go=async()=>{const m=$('lm');try{m.className='msg';m.textContent='Ingresando…';$('lb').classList.add('loading');await AdminAPI.login($('lu').value,$('lp').value);await boot()}catch(e){m.className='msg error';m.textContent=e.message}finally{$('lb')?.classList.remove('loading')}};
+  $('lb').onclick=go;$('lp').addEventListener('keydown',e=>{if(e.key==='Enter')go()});
+}
+async function boot(){
+  const s=await AdminAPI.session();if(!s){login();return}
+  try{site=await AdminAPI.getSettings();courses=await AdminAPI.listCourses();current=courses[0]||blank();render()}
+  catch(e){app.innerHTML=`<div class="login"><div class="eyebrow">Panel</div><h1>No se pudo cargar</h1><p>${esc(e.message||e)}</p><button class="btn dark" style="width:100%;margin-top:14px" id="retry">Reintentar</button></div>`;$('retry').onclick=boot}
+}
+function shell(content,title,eyebrow){
+  app.innerHTML=`<div class="shell"><aside class="side"><a class="brand" href="index.html"><span class="mark">MB</span><span><strong>Lic. Mauricio Berón</strong><small>Panel de contenidos</small></span></a><p>Edite textos, imágenes, datos de contacto, cursos y revise estadísticas sin modificar el código.</p><div class="nav"><button data-tab="site" class="${tab==='site'?'active':''}">Contenido del sitio</button><button data-tab="courses" class="${tab==='courses'?'active':''}">Cursos y masterclasses</button><button data-tab="stats" class="${tab==='stats'?'active':''}">Estadísticas</button></div><a class="btn" style="width:100%" href="index.html" target="_blank">Ver página</a><button class="btn ghost" id="logout" style="width:100%;margin-top:8px;color:#fff;border-color:#45515a">Cerrar sesión</button></aside><main class="main"><div class="top"><div><div class="eyebrow">${eyebrow}</div><h1>${title}</h1></div></div>${content}</main></div>`;
+  document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
+  $('logout').onclick=()=>{AdminAPI.logout();login()};
+}
+function render(){if(tab==='site')renderSite();else if(tab==='courses')renderCourses();else renderStats()}
+function field(name,label,type='text',full=false,value=''){if(type==='textarea')return`<div class="field ${full?'full':''}"><label>${label}</label><textarea name="${name}">${esc(value)}</textarea></div>`;return`<div class="field ${full?'full':''}"><label>${label}</label><input name="${name}" type="${type}" value="${escAttr(value)}"></div>`}
+function renderSite(){
+  const s=site;const html=`<div class="msg" id="msg"></div><form class="card" id="siteForm"><div class="grid">${field('heroEyebrow','Eyebrow del hero','text',true,s.heroEyebrow)}${field('heroTitleHtml','Título principal','textarea',true,s.heroTitleHtml)}${field('heroSubheadline','Subtítulo principal','textarea',true,s.heroSubheadline)}${field('heroImageUrl','URL del retrato profesional','url',true,s.heroImageUrl)}<div class="field full"><label>Reemplazar retrato</label><input id="heroFile" type="file" accept="image/*"></div>${field('officeTitle','Título del consultorio','textarea',true,s.officeTitle)}${field('officeDescription','Texto del consultorio','textarea',true,s.officeDescription)}${field('officeImageUrl','URL imagen principal del consultorio','url',true,s.officeImageUrl)}<div class="field full"><label>Reemplazar imagen del consultorio</label><input id="officeFile" type="file" accept="image/*"></div>${field('address','Dirección','text',true,s.address)}${field('email','Email','email',false,s.email)}${field('whatsapp','WhatsApp','text',false,s.whatsapp)}${field('instagram','Instagram','url',false,s.instagram)}${field('facebook','Facebook','url',false,s.facebook)}${field('tiktok','TikTok','url',false,s.tiktok)}${field('youtube','YouTube','url',false,s.youtube)}${field('contactHeadlineHtml','Título de contacto','textarea',true,s.contactHeadlineHtml)}${field('contactIntro','Texto de contacto','textarea',true,s.contactIntro)}${field('privacyText','Aviso breve de privacidad','textarea',true,s.privacyText)}</div><div class="actions"><button class="btn dark" type="submit">Guardar cambios</button><a class="btn" href="index.html" target="_blank">Previsualizar</a></div></form>`;
+  shell(html,'Contenido del sitio','Editor general');
+  $('siteForm').onsubmit=async e=>{e.preventDefault();const msg=$('msg');try{msg.className='msg';msg.textContent='Guardando…';const fd=new FormData(e.currentTarget),data={...site};for(const[k,v]of fd.entries())data[k]=v;const hf=$('heroFile').files[0],of=$('officeFile').files[0];if(hf){msg.textContent='Procesando retrato…';data.heroImageUrl=await AdminAPI.uploadImage(hf,'site-images','hero')}if(of){msg.textContent='Procesando imagen del consultorio…';data.officeImageUrl=await AdminAPI.uploadImage(of,'site-images','consultorio')}msg.textContent='Guardando…';site=await AdminAPI.saveSettings(data);msg.textContent='Cambios guardados correctamente.'}catch(err){msg.className='msg error';msg.textContent=err.message||'No se pudo guardar.'}}
+}
+function courseList(){return`<button class="btn dark" style="width:100%;margin-bottom:10px" id="newCourse">+ Nueva formación</button><div class="course-list">${courses.map(c=>`<div class="course-item ${current&&c.id===current.id?'active':''}" data-id="${escAttr(c.id)}"><strong>${esc(c.title||'Sin título')}</strong><small>${esc(c.type||'Formación')} · ${esc(c.status||'draft')}${c.featured?' · Destacada':''}</small></div>`).join('')}</div>`}
+function cfield(name,label,type='text',full=false,opts=''){const v=current?.[name]??'';if(type==='textarea')return`<div class="field ${full?'full':''}"><label>${label}</label><textarea name="${name}">${esc(v)}</textarea></div>`;if(type==='select')return`<div class="field ${full?'full':''}"><label>${label}</label><select name="${name}">${opts.split('|').map(o=>`<option value="${escAttr(o)}" ${String(v)===o?'selected':''}>${esc(o)}</option>`).join('')}</select></div>`;return`<div class="field ${full?'full':''}"><label>${label}</label><input name="${name}" type="${type}" value="${escAttr(v)}"></div>`}
+function renderCourses(message=''){
+  const html=`<div class="course-layout"><aside>${courseList()}</aside><div><div class="msg" id="cmsg">${esc(message)}</div><form class="card" id="courseForm"><div class="grid">${cfield('title','Título','text',true)}${cfield('slug','Enlace / slug')}${cfield('type','Tipo','select',false,'Masterclass|Curso|Taller|Supervisión')}${cfield('short_description','Descripción corta','textarea',true)}${cfield('description','Descripción completa','textarea',true)}${cfield('program','Programa / cronograma — un punto por línea','textarea',true)}${cfield('date','Fecha','date')}${cfield('time','Horario')}${cfield('duration','Duración')}${cfield('modality','Modalidad','select',false,'Online|Online en vivo|Presencial|Híbrida|Online grabado')}${cfield('location','Lugar / plataforma')}${cfield('price','Precio')}${cfield('currency','Moneda','select',false,'UYU|USD|ARS|BRL')}${cfield('purchase_url','Enlace de inscripción o compra','url',true)}${cfield('image_url','URL de imagen','url',true)}<div class="field full"><label>Subir imagen del curso</label><input id="courseFile" type="file" accept="image/*"></div><div class="field"><label>Estado</label><select name="status"><option value="published" ${current?.status==='published'?'selected':''}>Publicado — visible en el sitio</option><option value="draft" ${current?.status==='draft'?'selected':''}>Borrador — oculto</option><option value="archived" ${current?.status==='archived'?'selected':''}>Archivado</option></select></div>${cfield('order_index','Orden','number')}<div class="field"><label>Certificado</label><select name="certificate_status"><option value="pending" ${current?.certificate===null||typeof current?.certificate==='undefined'?'selected':''}>A confirmar</option><option value="yes" ${current?.certificate===true?'selected':''}>Sí, incluido</option><option value="no" ${current?.certificate===false?'selected':''}>No incluye</option></select></div><div class="field"><label>Destacado</label><div class="check-row"><label class="check"><input name="featured" type="checkbox" ${current?.featured?'checked':''}> Destacar en inicio</label></div></div></div><div class="actions"><button class="btn dark" type="submit">Guardar curso</button><button class="btn" type="button" id="duplicate">Duplicar</button>${current?.id&&current.status!=='published'?'<button class="btn dark" type="button" id="publishNow">Publicar ahora</button>':''}${current?.id?'<button class="btn" type="button" id="archive">Archivar</button><button class="btn ghost" type="button" id="delete">Eliminar</button>':''}<a class="btn" href="formacion.html" target="_blank">Ver cursos</a></div></form></div></div>`;
+  shell(html,'Cursos y masterclasses','Editor de formación');
+  document.querySelectorAll('.course-item').forEach(el=>el.onclick=()=>{current=courses.find(c=>String(c.id)===el.dataset.id)||current;renderCourses()});
+  $('newCourse').onclick=()=>{current=blank();renderCourses()};$('courseForm').onsubmit=saveCourse;
+  $('duplicate').onclick=()=>{current={...readCourse(),id:'',slug:cleanSlug((current.slug||current.title||'formacion')+'-nueva-edicion'),title:(current.title||'Formación')+' — nueva edición',status:'draft',featured:false};renderCourses()};
+  $('publishNow')?.addEventListener('click',async()=>{try{current=await AdminAPI.upsertCourse({...current,status:'published'});await refreshCourses();renderCourses('Publicado correctamente. Ya aparece en la página de cursos.')}catch(e){renderCourses(e.message)}});
+  $('archive')?.addEventListener('click',async()=>{try{current=await AdminAPI.upsertCourse({...current,status:'archived',featured:false});await refreshCourses();renderCourses('Formación archivada. Ya no aparece en la página pública.')}catch(e){renderCourses(e.message)}});
+  $('delete')?.addEventListener('click',async()=>{if(confirm('¿Eliminar esta formación?')){try{await AdminAPI.deleteCourse(current.id);current=null;await refreshCourses();renderCourses('Formación eliminada.')}catch(e){renderCourses(e.message)}}});
+}
+function readCourse(){const f=$('courseForm'),fd=new FormData(f),o={...current};for(const[k,v]of fd.entries())if(k!=='certificate_status'&&k!=='featured')o[k]=v;const cs=fd.get('certificate_status');o.certificate=cs==='yes'?true:cs==='no'?false:null;o.featured=f.elements.featured.checked;o.slug=cleanSlug(o.slug||o.title);o.order_index=Number(o.order_index||1);return o}
+async function saveCourse(e){e.preventDefault();const m=$('cmsg');try{m.className='msg';m.textContent='Guardando…';let o=readCourse();if(!o.title.trim())throw new Error('Ingrese un título.');const file=$('courseFile').files[0];if(file){m.textContent='Procesando imagen…';o.image_url=await AdminAPI.uploadImage(file,cfg.storageBucket||'course-images',o.slug||o.title)}m.textContent='Guardando…';o=await AdminAPI.upsertCourse(o);if(o.featured)o=await AdminAPI.setFeatured(o.id)||o;current=o;await refreshCourses();renderCourses(o.status==='published'?'Guardado y publicado. Ya es visible en la página de cursos.':'Cambios guardados correctamente.')}catch(err){m.className='msg error';m.textContent=err.message||'No se pudo guardar.'}}
+async function refreshCourses(){courses=await AdminAPI.listCourses();if(current?.id)current=courses.find(x=>x.id===current.id)||current;if(!current)current=courses[0]||blank()}
+async function renderStats(){
+  let rows=[];try{rows=await AdminAPI.getStats(30)}catch(e){shell(`<div class="msg error">${esc(e.message)}</div>`,'Estadísticas','Últimos 30 días');return}
+  const total=rows.length,sources={},pages={};rows.forEach(r=>{sources[r.source||'direct']=(sources[r.source||'direct']||0)+1;pages[r.page||'/']=(pages[r.page||'/']||0)+1});const top=obj=>Object.entries(obj).sort((a,b)=>b[1]-a[1]).slice(0,8);const max=Math.max(1,...Object.values(sources));const pageMax=Math.max(1,...Object.values(pages));
+  const html=`<div class="stats-grid"><div class="stat"><strong>${total}</strong><span>Visitas · últimos 30 días</span></div><div class="stat"><strong>${Object.keys(sources).length}</strong><span>Fuentes detectadas</span></div><div class="stat"><strong>${Object.keys(pages).length}</strong><span>Páginas visitadas</span></div></div><div class="table"><div class="eyebrow" style="margin-bottom:10px">Procedencia de visitas</div>${top(sources).length?top(sources).map(([n,v])=>`<div class="bar"><span>${esc(n)}</span><div class="track"><div class="fill" style="width:${Math.round(v/max*100)}%"></div></div><strong>${v}</strong></div>`).join(''):'<p style="color:#69737c;font-size:12px">Aún no hay datos registrados.</p>'}</div><div class="table" style="margin-top:16px"><div class="eyebrow" style="margin-bottom:10px">Páginas más visitadas</div>${top(pages).length?top(pages).map(([n,v])=>`<div class="bar"><span>${esc(n)}</span><div class="track"><div class="fill" style="width:${Math.round(v/pageMax*100)}%"></div></div><strong>${v}</strong></div>`).join(''):'<p style="color:#69737c;font-size:12px">Aún no hay datos registrados.</p>'}</div>`;
+  shell(html,'Estadísticas','Últimos 30 días');
+}
+boot();
+})();
+</script>
+</body>
+</html>
