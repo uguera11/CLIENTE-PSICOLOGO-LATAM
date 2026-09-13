@@ -1,153 +1,28 @@
 <!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mi área | Lic. Mauricio Berón</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f7f5f9;--panel:#fff;--ink:#211d25;--muted:#7d7483;--line:#e7e1eb;--violet:#75618f;--soft:#eee8f3;--dark:#17141b;--shadow:0 18px 48px rgba(42,31,50,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink)}a{text-decoration:none;color:inherit}.header{height:76px;background:rgba(255,255,255,.93);backdrop-filter:blur(15px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.head{width:min(1240px,calc(100% - 36px));height:100%;margin:auto;display:flex;align-items:center;gap:12px}.mark{width:38px;height:38px;border-radius:10px;background:var(--dark);color:#fff;display:grid;place-items:center;font-family:Georgia,serif;font-weight:700}.brand strong{font-size:11px;display:block}.brand span{font-size:8px;color:var(--muted);display:block;margin-top:2px}.nav{margin-left:auto;display:flex;align-items:center;gap:8px}.logout{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 11px;font-size:9px;font-weight:800;cursor:pointer}.avatar{width:34px;height:34px;border-radius:50%;background:var(--soft);color:#5f4c79;display:grid;place-items:center;font-weight:800;font-size:10px}.wrap{width:min(1240px,calc(100% - 36px));margin:34px auto 60px}.welcome{background:linear-gradient(135deg,#19151d,#302736 75%,#463650);color:#fff;border-radius:25px;padding:34px 38px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end;box-shadow:var(--shadow)}.eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:#c7b5d7}.welcome h1{font-size:clamp(30px,4vw,48px);letter-spacing:-.05em;line-height:1.05;margin:10px 0}.welcome p{margin:0;color:#d4ccd9;font-size:11px;line-height:1.65;max-width:650px}.summary{display:flex;gap:9px}.sum{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);border-radius:14px;padding:13px 16px;min-width:110px}.sum small{display:block;font-size:8px;color:#bdb2c4;text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-bottom:5px}.sum strong{font-size:15px}.section{margin-top:30px}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:14px}.section-head h2{font-size:20px;letter-spacing:-.03em;margin:0}.section-head p{font-size:10px;color:var(--muted);margin:5px 0 0}.courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.course{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(35,27,44,.04);display:grid;grid-template-columns:190px 1fr;min-height:210px}.course-media{background:#ddd}.course-media img{width:100%;height:100%;object-fit:cover;display:block}.course-body{padding:22px;display:flex;flex-direction:column}.course-label{font-size:8px;text-transform:uppercase;letter-spacing:.11em;font-weight:800;color:var(--violet);margin-bottom:8px}.course h3{font-size:16px;line-height:1.35;margin:0 0 8px}.course p{font-size:10px;color:var(--muted);line-height:1.55;margin:0 0 16px}.progrow{margin-top:auto}.proghead{display:flex;justify-content:space-between;font-size:8px;font-weight:800;color:#827789;text-transform:uppercase}.track{height:6px;background:#ede8f0;border-radius:999px;overflow:hidden;margin:7px 0 13px}.bar{height:100%;background:var(--violet)}.action{display:inline-flex;align-items:center;justify-content:center;background:var(--dark);color:#fff;border-radius:9px;padding:10px 12px;font-size:9px;font-weight:800}.demo-banner{margin-top:14px;padding:12px 14px;border-radius:12px;background:#eee8f3;border:1px solid #ded4e6;font-size:9px;color:#65566e}.footer{text-align:center;color:#9b929e;font-size:8px;padding:20px}@media(max-width:880px){.welcome{grid-template-columns:1fr}.courses{grid-template-columns:1fr}.course{grid-template-columns:145px 1fr}}@media(max-width:560px){.wrap,.head{width:min(100% - 24px,1240px)}.welcome{padding:26px 22px}.course{grid-template-columns:1fr}.course-media{height:170px}.summary{display:none}}
-</style>
-</head>
-<body>
-
-<header class="header">
-  <div class="head">
-    <div class="mark">MB</div>
-    <div class="brand"><strong>Lic. Mauricio Berón</strong><span>Área privada de formación</span></div>
-    <nav class="nav"><div class="avatar" id="avatar">AL</div><button class="logout" id="logout">Salir</button></nav>
-  </div>
-</header>
-
-<main class="wrap">
-  <section class="welcome">
-    <div>
-      <div class="eyebrow">Área de alumnos</div>
-      <h1>Hola, <span id="studentName">Alumno</span>.</h1>
-      <p>Continúa tu formación desde donde la dejaste. Aquí aparecerán únicamente los cursos habilitados para tu cuenta.</p>
-    </div>
-    <div class="summary">
-      <div class="sum"><small>Formaciones</small><strong id="courseCount">1</strong></div>
-      <div class="sum"><small>Certificados</small><strong>0</strong></div>
-    </div>
-  </section>
-
-  <div class="demo-banner">Modo de prueba activo. Esta versão foi feita para eliminar o loop de login antes de conectarmos o acesso real.</div>
-
-  <section class="section">
-    <div class="section-head"><div><h2>Mis formaciones</h2><p>Acceso disponible según las compras asociadas a tu cuenta.</p></div></div>
-    <div class="courses" id="courses"></div>
-  </section>
-</main>
-
-<footer class="footer">Lic. Mauricio Berón · Formación profesional</footer>
-
+:root{--bg:#f7f5f9;--ink:#211d25;--muted:#7d7483;--line:#e7e1eb;--violet:#75618f;--soft:#eee8f3;--dark:#17141b}
+*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink)}a{text-decoration:none;color:inherit}
+.header{height:76px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.head{width:min(1240px,calc(100% - 36px));height:100%;margin:auto;display:flex;align-items:center;gap:12px}.mark{width:38px;height:38px;border-radius:10px;background:var(--dark);color:#fff;display:grid;place-items:center;font-weight:800}.brand strong{display:block;font-size:11px}.brand span{display:block;font-size:8px;color:var(--muted);margin-top:2px}.nav{margin-left:auto;display:flex;align-items:center;gap:9px}.avatar{width:34px;height:34px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:800;font-size:10px}.logout{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 11px;font-size:9px;font-weight:800;cursor:pointer}
+.wrap{width:min(1240px,calc(100% - 36px));margin:34px auto 60px}.welcome{background:linear-gradient(135deg,#19151d,#302736 75%,#463650);color:#fff;border-radius:25px;padding:34px 38px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:#c7b5d7}.welcome h1{font-size:clamp(30px,4vw,48px);letter-spacing:-.05em;line-height:1.05;margin:10px 0}.welcome p{margin:0;color:#d4ccd9;font-size:11px;line-height:1.65}.sum{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);border-radius:14px;padding:13px 16px;min-width:120px}.sum small{display:block;font-size:8px;color:#bdb2c4;text-transform:uppercase;font-weight:800}.sum strong{font-size:20px}
+.demo{margin-top:14px;padding:12px 14px;background:#eee8f3;border:1px solid #ded4e6;border-radius:12px;color:#65566e;font-size:9px;line-height:1.55}
+.section{margin-top:30px}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:15px}.section-head h2{font-size:21px;margin:0}.section-head p{font-size:10px;color:var(--muted);margin:5px 0 0}.tag{font-size:8px;background:var(--soft);color:#5f4c79;border-radius:99px;padding:7px 10px;font-weight:800}
+.courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.course{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:190px 1fr;min-height:210px;box-shadow:0 10px 30px rgba(35,27,44,.04)}.course-media{background:#ddd;min-height:180px}.course-media img{width:100%;height:100%;object-fit:cover;display:block}.course-body{padding:22px;display:flex;flex-direction:column}.label{font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:var(--violet);font-weight:800;margin-bottom:8px}.course h3{font-size:15px;line-height:1.35;margin:0 0 8px}.course p{font-size:10px;line-height:1.55;color:var(--muted);margin:0 0 18px}.action{margin-top:auto;display:inline-flex;width:max-content;background:var(--dark);color:#fff;border-radius:9px;padding:10px 13px;font-size:9px;font-weight:800}
+.footer{text-align:center;color:#9b929e;font-size:8px;padding:20px}@media(max-width:880px){.welcome{grid-template-columns:1fr}.courses{grid-template-columns:1fr}.course{grid-template-columns:150px 1fr}}@media(max-width:560px){.course{grid-template-columns:1fr}.course-media{height:180px}.wrap,.head{width:min(100% - 24px,1240px)}}
+</style></head><body>
+<header class="header"><div class="head"><div class="mark">MB</div><div class="brand"><strong>Lic. Mauricio Berón</strong><span>Área privada de formación</span></div><nav class="nav"><div class="avatar" id="avatar">AL</div><button class="logout" id="logout">Salir</button></nav></div></header>
+<main class="wrap"><section class="welcome"><div><div class="eyebrow">Área de alumnos</div><h1>Hola, <span id="student">Alumno</span>.</h1><p>Aquí encontrarás todas tus formaciones, materiales y accesos.</p></div><div class="sum"><small>Formaciones disponibles</small><strong>10</strong></div></section>
+<div class="demo"><strong>Modo demo:</strong> por ahora se muestran las 10 formaciones para configurar y revisar la plataforma. En el próximo paso conectaremos Hotmart y cada alumno verá únicamente las que compró.</div>
+<section class="section"><div class="section-head"><div><h2>Mis formaciones</h2><p>Selecciona una formación para acceder al contenido.</p></div><span class="tag">10 productos</span></div><div class="courses" id="courses"></div></section></main><footer class="footer">Lic. Mauricio Berón · Formación profesional</footer>
 <script>
-(function(){
-  const params = new URLSearchParams(location.search);
-  const demoParam = params.get('demo') === '1';
-  const emailParam = params.get('email') || '';
-
-  let session = null;
-
-  try{
-    session = JSON.parse(localStorage.getItem('mb_demo_session') || 'null');
-  }catch(e){}
-
-  if(!session){
-    try{
-      session = JSON.parse(sessionStorage.getItem('mb_demo_session') || 'null');
-    }catch(e){}
-  }
-
-  // Enquanto estamos em fase demo, o parâmetro de URL é aceito como sessão.
-  if(!session && demoParam){
-    session = {
-      email: emailParam || 'alumno@demo.com',
-      name: (emailParam || 'Alumno Demo').split('@')[0],
-      courses: ['conductas-sexuales-abusivas'],
-      demo: true
-    };
-
-    try{
-      localStorage.setItem('mb_demo_session', JSON.stringify(session));
-    }catch(e){}
-  }
-
-  // Abrindo o arquivo direto no computador também mostra o painel.
-  if(!session && location.protocol === 'file:'){
-    session = {
-      email:'alumno@demo.com',
-      name:'Alumno Demo',
-      courses:['conductas-sexuales-abusivas'],
-      demo:true
-    };
-  }
-
-  if(!session){
-    window.location.replace('/cursos/login/?erro=sessao&v=3');
-    return;
-  }
-
-  const catalog = {
-    'conductas-sexuales-abusivas': {
-      title:'Conductas Sexuales Abusivas entre Niños y Adolescentes',
-      subtitle:'Evaluación, Intervención y Perspectiva Forense',
-      image:'/cursos/assets/conductas-sexuales-abusivas.webp',
-      url:'/cursos/formacoes/conductas-sexuales-abusivas/',
-      progressKey:'mb_progress_csa'
-    }
-  };
-
-  const raw = (session.name || 'Alumno').replace(/[._-]+/g,' ');
-  const display = raw.charAt(0).toUpperCase() + raw.slice(1);
-  document.getElementById('studentName').textContent = display;
-  document.getElementById('avatar').textContent = display.slice(0,2).toUpperCase();
-
-  const ids = (session.courses || ['conductas-sexuales-abusivas']).filter(id => catalog[id]);
-  document.getElementById('courseCount').textContent = ids.length;
-  const holder = document.getElementById('courses');
-
-  ids.forEach(id => {
-    const c = catalog[id];
-    let pct = 0;
-
-    try{
-      const p = JSON.parse(localStorage.getItem(c.progressKey) || '[]');
-      pct = Math.round((Array.isArray(p) ? p.length : 0) / 5 * 100);
-    }catch(e){}
-
-    holder.insertAdjacentHTML('beforeend', `
-      <article class="course">
-        <div class="course-media"><img src="${c.image}" alt="${c.title}"></div>
-        <div class="course-body">
-          <div class="course-label">Formación adquirida</div>
-          <h3>${c.title}</h3>
-          <p>${c.subtitle}</p>
-          <div class="progrow">
-            <div class="proghead"><span>Progreso</span><span>${pct}%</span></div>
-            <div class="track"><div class="bar" style="width:${pct}%"></div></div>
-            <a class="action" href="${c.url}">${pct>0 ? 'Continuar formación' : 'Comenzar formación'}</a>
-          </div>
-        </div>
-      </article>
-    `);
-  });
-
-  document.getElementById('logout').addEventListener('click', function(){
-    try{
-      localStorage.removeItem('mb_demo_session');
-      sessionStorage.removeItem('mb_demo_session');
-    }catch(e){}
-    window.location.href='/cursos/login/?v=3';
-  });
-})();
-</script>
-</body>
-</html>
+const catalog=[{"id": "conductas-sexuales-abusivas", "title": "Conductas Sexuales Abusivas entre Niños y Adolescentes", "subtitle": "Evaluación, Intervención y Perspectiva Forense", "image": "conductas-sexuales-abusivas.webp", "url": "../formacoes/conductas-sexuales-abusivas/", "available": true}, {"id": "entrevista-forense-presuntos-agresores-sexuales", "title": "Curso Entrevista Forense Presuntos Agresores Sexuales", "subtitle": "Evaluación, análisis conductual e integración pericial", "image": "entrevista-forense-agresores.webp", "url": "../formacoes/entrevista-forense-presuntos-agresores-sexuales/", "available": true}, {"id": "entrevista-forense-analisis-testimonio", "title": "Entrevista Forense y Análisis del Testimonio", "subtitle": "Entrevista y evaluación del testimonio en contexto forense", "image": "entrevista-forense-testimonio.webp", "url": "../formacoes/entrevista-forense-analisis-testimonio/", "available": true}, {"id": "evaluacion-forense-victimologica-parentalidad", "title": "Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales", "subtitle": "Evaluación especializada en contextos familiares y judiciales", "image": "parentalidad-victimologica.webp", "url": "../formacoes/evaluacion-forense-victimologica-parentalidad/", "available": true}, {"id": "abordaje-neuropsicologico-forense-evaluacion-pericial", "title": "Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial", "subtitle": "Neuropsicología aplicada a la evaluación pericial", "image": "neuropsicologia-forense.webp", "url": "../formacoes/abordaje-neuropsicologico-forense-evaluacion-pericial/", "available": true}, {"id": "pericia-psicologica-forense", "title": "Master Class - Pericia Psicológica Forense", "subtitle": "Razonamiento pericial, metapericia y construcción de informes", "image": "pericia-psicologica-forense.webp", "url": "../formacoes/pericia-psicologica-forense/", "available": true}, {"id": "evaluacion-psicologica-porte-tenencia-armas", "title": "Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas", "subtitle": "Psicodiagnóstico, riesgo, técnicas e informe profesional", "image": "porte-tenencia-armas.webp", "url": "../formacoes/evaluacion-psicologica-porte-tenencia-armas/", "available": true}, {"id": "trauma-disociacion-modelo-apego", "title": "Trauma y Disociación – Intervención desde el Modelo de Apego", "subtitle": "Apego, trauma complejo, disociación e intervención clínica", "image": "trauma-disociacion-apego.webp", "url": "../formacoes/trauma-disociacion-modelo-apego/", "available": true}, {"id": "trauma-y-juego", "title": "Trauma y Juego", "subtitle": "Trauma del desarrollo y recursos clínicos", "image": "trauma-juego.webp", "url": "../formacoes/trauma-y-juego/", "available": true}, {"id": "victimologia-subjetividad-victima", "title": "Victimología, un enfoque centrado en la subjetividad de la víctima", "subtitle": "Victimología clínica y forense", "image": "victimologia-subjetividad.webp", "url": "../formacoes/victimologia-subjetividad-victima/", "available": true}];
+let s=null;try{s=JSON.parse(localStorage.getItem('mb_demo_session')||'null')}catch(e){}
+if(!s){try{s=JSON.parse(sessionStorage.getItem('mb_demo_session')||'null')}catch(e){}}
+if(!s && location.protocol!=='file:' && !new URLSearchParams(location.search).has('demo')){location.replace('../login/');}
+const display=((s&&s.name)||'Alumno').replace(/[._-]+/g,' ');document.getElementById('student').textContent=display.charAt(0).toUpperCase()+display.slice(1);document.getElementById('avatar').textContent=display.slice(0,2).toUpperCase();
+const holder=document.getElementById('courses');
+catalog.forEach(c=>{holder.insertAdjacentHTML('beforeend',`<article class="course"><div class="course-media"><img src="../assets/${c.image}" alt=""></div><div class="course-body"><div class="label">Formación</div><h3>${c.title}</h3><p>${c.subtitle}</p><a class="action" href="${c.url}">Acceder a la formación</a></div></article>`)})
+document.getElementById('logout').onclick=()=>{try{localStorage.removeItem('mb_demo_session');sessionStorage.removeItem('mb_demo_session')}catch(e){}location.href='../login/'}
+</script></body></html>
