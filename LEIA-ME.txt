@@ -1,0 +1,16 @@
+TESTE DE CONEXÃO FIREBASE + VERCEL
+
+Este pacote NÃO altera nenhuma página do site ou dos cursos.
+
+1. Copie package.json e a pasta api para a raiz do repositório.
+2. GitHub Desktop:
+   Summary: Testar conexão Firebase
+   Commit to main > Push origin
+3. Aguarde o deploy da Vercel.
+4. Abra:
+   https://psicologomauricioberon.com/api/firebase-test
+
+Resultado esperado:
+{"ok":true,"firebase":"connected",...}
+
+Não envie nem publique a FIREBASE_PRIVATE_KEY.
