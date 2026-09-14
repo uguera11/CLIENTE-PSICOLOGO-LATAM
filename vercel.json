@@ -1,0 +1,41 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/course.js": {
+      "includeFiles": "private-courses/**"
+    },
+    "api/dashboard.js": {
+      "includeFiles": "private-dashboard/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/cursos/minha-area",
+      "destination": "/api/dashboard"
+    },
+    {
+      "source": "/cursos/minha-area/",
+      "destination": "/api/dashboard"
+    },
+    {
+      "source": "/cursos/formacoes/:course",
+      "destination": "/api/course?course=:course"
+    },
+    {
+      "source": "/cursos/formacoes/:course/",
+      "destination": "/api/course?course=:course"
+    },
+    {
+      "source": "/cursos/formacoes/:course/:path*",
+      "destination": "/api/course?course=:course&path=:path*"
+    },
+    {
+      "source": "/private-courses/:path*",
+      "destination": "/api/not-found"
+    },
+    {
+      "source": "/private-dashboard/:path*",
+      "destination": "/api/not-found"
+    }
+  ]
+}

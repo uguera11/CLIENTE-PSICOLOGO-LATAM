@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#17141b" />
+  <title>Área de Miembros | Conductas Sexuales Abusivas entre Niños y Adolescentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f5f9;
+      --panel:#ffffff;
+      --panel-2:#f1edf5;
+      --ink:#211d25;
+      --muted:#756d7b;
+      --line:#e6e0eb;
+      --violet:#75618f;
+      --violet-2:#5f4c79;
+      --violet-soft:#ece6f2;
+      --dark:#17141b;
+      --success:#4d7a62;
+      --shadow:0 16px 45px rgba(35,27,44,.09);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:14px}
+    button,a{font:inherit}
+    a{text-decoration:none;color:inherit}
+    .topbar{position:sticky;top:0;z-index:30;height:70px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);display:flex;align-items:center}
+    .topbar-inner{width:min(1460px,calc(100% - 36px));margin:auto;display:flex;align-items:center;gap:14px}
+    .brand-mark{width:36px;height:36px;border-radius:9px;background:var(--dark);display:grid;place-items:center;color:#fff;flex:0 0 auto}
+    .brand-mark svg{width:18px;height:18px}
+    .course-name{font-weight:800;font-size:13px;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .top-meta{margin-left:auto;display:flex;align-items:center;gap:10px}
+    .member-pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;color:var(--muted);font-size:11px;font-weight:700}
+    .layout{width:min(1460px,calc(100% - 36px));margin:24px auto 48px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;align-items:start}
+    .sidebar{position:sticky;top:94px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .side-head{padding:22px;border-bottom:1px solid var(--line)}
+    .side-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--violet);font-weight:800;margin-bottom:8px}
+    .side-head h2{font-size:16px;line-height:1.35;margin:0 0 8px}
+    .side-head p{margin:0;color:var(--muted);font-size:11px;line-height:1.55}
+    .progress-wrap{padding:18px 22px;border-bottom:1px solid var(--line);background:#fbfafc}
+    .progress-row{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .progress-track{height:7px;background:#e9e3ed;border-radius:999px;overflow:hidden;margin-top:10px}
+    .progress-bar{height:100%;width:0;background:var(--violet);transition:width .35s ease}
+    .module-nav{padding:10px}
+    .nav-item{width:100%;border:0;background:transparent;text-align:left;padding:12px;border-radius:12px;display:grid;grid-template-columns:30px 1fr 20px;gap:10px;align-items:center;color:#433a48;cursor:pointer;transition:.2s}
+    .nav-item:hover,.nav-item.active{background:var(--violet-soft);color:var(--violet-2)}
+    .nav-num{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;font-size:10px;font-weight:800}
+    .nav-copy strong{display:block;font-size:11px;line-height:1.35}
+    .nav-copy span{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+    .nav-check{width:17px;height:17px;border:1px solid #cfc5d7;border-radius:50%;display:grid;place-items:center;font-size:10px;color:transparent}
+    .nav-item.done .nav-check{background:var(--success);border-color:var(--success);color:#fff}
+    .main{min-width:0}
+    .hero{background:linear-gradient(135deg,#1b1720,#2b2432 72%,#3c3047);color:#fff;border-radius:26px;padding:38px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(139,120,164,.18);right:-100px;top:-140px;filter:blur(2px)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr);gap:34px;align-items:end}
+    .eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.15em;color:#c7b5da;margin-bottom:13px}
+    .hero h1{font-size:clamp(28px,3.4vw,48px);line-height:1.03;letter-spacing:-.045em;margin:0 0 16px;max-width:900px}
+    .hero p{font-size:13px;line-height:1.7;color:#d9d2df;max-width:760px;margin:0}
+    .teacher-card{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.06);border-radius:18px;padding:18px}
+    .teacher-card small{display:block;color:#b9acc5;font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:6px}
+    .teacher-card strong{display:block;font-size:14px;margin-bottom:5px}
+    .teacher-card span{font-size:10px;color:#cec5d3;line-height:1.5;display:block}
+    .overview{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 24px}
+    .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+    .stat small{display:block;color:#8e8494;font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-bottom:5px}
+    .stat strong{font-size:12px;line-height:1.4}
+    .section{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 10px 30px rgba(35,27,44,.045);padding:26px;margin-top:18px}
+    .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .section-title h2{margin:0;font-size:20px;letter-spacing:-.025em}
+    .section-title p{margin:5px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
+    .module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .module-card{border:1px solid var(--line);border-radius:17px;padding:18px;background:#fff;transition:.22s;display:flex;flex-direction:column;min-height:208px}
+    .module-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(35,27,44,.07)}
+    .module-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .module-badge{font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--violet);background:var(--violet-soft);padding:6px 9px;border-radius:999px}
+    .complete-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;font-size:9px;font-weight:800;color:var(--muted);cursor:pointer}
+    .complete-btn.done{background:#eef6f1;color:var(--success);border-color:#d9e9df}
+    .module-card h3{font-size:15px;line-height:1.35;margin:0 0 8px;letter-spacing:-.015em}
+    .module-card p{font-size:11px;line-height:1.6;color:var(--muted);margin:0 0 16px;flex:1}
+    .module-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:10px;padding:10px 12px;font-size:10px;font-weight:800;border:1px solid var(--line);cursor:pointer;transition:.2s}
+    .btn-primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+    .btn-primary:hover{background:#2c2631}
+    .btn-light{background:#fff;color:#54495d}
+    .btn-light:hover{background:#f7f4f9}
+    .materials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .material-card{border:1px solid var(--line);border-radius:16px;padding:17px;background:linear-gradient(180deg,#fff,#fbfafc)}
+    .material-icon{width:38px;height:38px;border-radius:11px;background:var(--violet-soft);color:var(--violet-2);display:grid;place-items:center;margin-bottom:14px}
+    .material-icon svg{width:18px;height:18px}
+    .material-card small{font-size:9px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#978c9e}
+    .material-card h3{font-size:13px;line-height:1.4;margin:6px 0 7px}
+    .material-card p{font-size:10px;line-height:1.55;color:var(--muted);margin:0 0 14px}
+    .material-actions{display:flex;gap:7px;flex-wrap:wrap}
+    .viewer{display:none;overflow:hidden;padding:0}
+    .viewer.show{display:block}
+    .viewer-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;justify-content:space-between}
+    .viewer-head strong{font-size:12px}
+    .viewer-head span{font-size:9px;color:var(--muted);display:block;margin-top:3px}
+    .viewer iframe{display:block;width:100%;height:760px;border:0;background:#eee}
+    .close-viewer{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 10px;cursor:pointer;font-size:10px;font-weight:800;color:var(--muted)}
+    .notice{margin-top:18px;padding:16px 18px;border-radius:15px;background:#f0edf4;border:1px solid #e1d9e8;color:#62576a;font-size:10px;line-height:1.6}
+    .notice strong{color:#44394d}
+
+    .certificate-section{position:relative;overflow:hidden}
+    .certificate-section:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-120px;top:-130px;background:rgba(117,97,143,.10)}
+    .cert-shell{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:22px;align-items:center}
+    .cert-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--violet);font-weight:800;margin-bottom:8px}
+    .cert-copy h2{margin:0 0 9px;font-size:24px;letter-spacing:-.03em}
+    .cert-copy p{margin:0;color:var(--muted);font-size:11px;line-height:1.65;max-width:680px}
+    .cert-panel{border:1px solid var(--line);background:linear-gradient(145deg,#fff,#f8f5fb);border-radius:18px;padding:20px}
+    .cert-status{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+    .cert-lock{width:38px;height:38px;border-radius:12px;background:#eee8f3;color:var(--violet-2);display:grid;place-items:center;font-size:16px;font-weight:900}
+    .cert-status strong{display:block;font-size:12px}
+    .cert-status span{display:block;font-size:9px;color:var(--muted);margin-top:3px}
+    .cert-btn{width:100%;border:0;border-radius:11px;padding:12px 14px;background:var(--dark);color:#fff;font-weight:800;font-size:10px;cursor:pointer;transition:.2s}
+    .cert-btn:hover:not(:disabled){background:#2d2632;transform:translateY(-1px)}
+    .cert-btn:disabled{opacity:.45;cursor:not-allowed}
+    .cert-existing{display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:12px}
+    .cert-existing.show{display:block}
+    .cert-existing small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:#978d9d;font-weight:800}
+    .cert-existing strong{display:block;margin:4px 0 9px;font-size:10px}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(20,17,24,.72);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
+    .modal-backdrop.show{display:flex}
+    .cert-modal{width:min(560px,100%);background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.25);overflow:hidden}
+    .cert-modal-head{padding:22px 24px 17px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+    .cert-modal-head h3{margin:0;font-size:19px;letter-spacing:-.025em}
+    .cert-modal-head p{margin:6px 0 0;color:var(--muted);font-size:10px;line-height:1.5}
+    .cert-modal-close{border:1px solid var(--line);background:#fff;border-radius:9px;width:34px;height:34px;cursor:pointer;color:var(--muted);font-weight:800}
+    .cert-form{padding:22px 24px 24px}
+    .field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#817787;font-weight:800;margin-bottom:7px}
+    .field input{width:100%;border:1px solid #dcd4e2;border-radius:11px;padding:13px 14px;outline:none;font:inherit;font-size:12px;color:var(--ink);background:#fff;transition:.2s}
+    .field input:focus{border-color:#9d8aaf;box-shadow:0 0 0 3px rgba(117,97,143,.10)}
+    .confirm-row{display:flex;gap:9px;align-items:flex-start;margin:14px 0 18px;color:var(--muted);font-size:9px;line-height:1.5}
+    .confirm-row input{margin-top:2px}
+    .cert-actions{display:grid;grid-template-columns:1fr auto;gap:9px}
+    .cert-generate{border:0;border-radius:11px;padding:12px 16px;background:var(--violet-2);color:#fff;font-size:10px;font-weight:800;cursor:pointer}
+    .cert-cancel{border:1px solid var(--line);border-radius:11px;padding:12px 16px;background:#fff;color:var(--muted);font-size:10px;font-weight:800;cursor:pointer}
+    .cert-message{min-height:16px;margin-top:10px;font-size:9px;color:#9b4e55}
+    #qrHidden{position:fixed;left:-9999px;top:-9999px;width:256px;height:256px;background:#fff;padding:8px}
+    @media(max-width:820px){.cert-shell{grid-template-columns:1fr}.cert-actions{grid-template-columns:1fr}.cert-cancel{order:2}}
+
+    .footer{margin-top:22px;text-align:center;color:#9a919e;font-size:9px;padding:18px}
+    .mobile-toggle{display:none}
+    @media(max-width:1080px){
+      .layout{grid-template-columns:250px minmax(0,1fr)}
+      .hero-grid{grid-template-columns:1fr}
+      .teacher-card{max-width:520px}
+      .overview{grid-template-columns:repeat(2,1fr)}
+      .materials{grid-template-columns:1fr}
+    }
+    @media(max-width:820px){
+      .topbar{height:auto;min-height:64px;padding:10px 0}
+      .topbar-inner{width:min(100% - 24px,1460px)}
+      .member-pill{display:none}
+      .mobile-toggle{display:inline-flex;margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 10px;font-size:10px;font-weight:800;cursor:pointer}
+      .layout{width:min(100% - 24px,1460px);display:block;margin-top:16px}
+      .sidebar{display:none;position:static;margin-bottom:14px}
+      .sidebar.open{display:block}
+      .main{width:100%}
+      .hero{padding:26px 22px;border-radius:20px}
+      .hero h1{font-size:31px}
+      .overview{grid-template-columns:1fr 1fr}
+      .module-grid{grid-template-columns:1fr}
+      .section{padding:20px}
+      .viewer iframe{height:68vh}
+    }
+    @media(max-width:520px){
+      .course-name{font-size:10px;max-width:72vw}
+      .overview{grid-template-columns:1fr}
+      .hero h1{font-size:28px}
+      .hero p{font-size:11px}
+      .section-title{display:block}
+      .materials{grid-template-columns:1fr}
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 5.5A2.5 2.5 0 0 1 7.5 3h9A2.5 2.5 0 0 1 19 5.5v13a1.5 1.5 0 0 1-2.24 1.3L12 17.1l-4.76 2.7A1.5 1.5 0 0 1 5 18.5v-13Z" fill="currentColor"/><path d="M9 8h6M9 11h4" stroke="#17141b" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="course-name">CONDUCTAS SEXUALES ABUSIVAS ENTRE NIÑOS Y ADOLESCENTES</div>
+      <div class="top-meta"><div class="member-pill">Área de miembros</div></div>
+      <button class="mobile-toggle" id="mobileToggle">Contenido</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-head">
+        <div class="side-kicker">Formación profesional</div>
+        <h2>Evaluación, intervención y perspectiva forense</h2>
+        <p>Lic. Mauricio Berón · Psicólogo Judicial y Forense</p>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-row"><span>Tu progreso</span><span id="progressText">0%</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+      <nav class="module-nav" id="moduleNav">
+        <button class="nav-item active" data-module="1"><span class="nav-num">01</span><span class="nav-copy"><strong>Comprensión del fenómeno</strong><span>Fundamentos y criterios diferenciales</span></span><span class="nav-check">✓</span></button>
+        <button class="nav-item" data-module="2"><span class="nav-num">02</span><span class="nav-copy"><strong>Conductas abusivas entre pares</strong><span>Poder, coerción y asimetrías</span></span><span class="nav-check">✓</span></button>
+        <button class="nav-item" data-module="3"><span class="nav-num">03</span><span class="nav-copy"><strong>Evaluación clínica y forense</strong><span>Entrevista, relato y criterios</span></span><span class="nav-check">✓</span></button>
+        <button class="nav-item" data-module="4"><span class="nav-num">04</span><span class="nav-copy"><strong>Intervención clínica y psicosocial</strong><span>Protección, reparación y red</span></span><span class="nav-check">✓</span></button>
+        <button class="nav-item" data-module="5"><span class="nav-num">05</span><span class="nav-copy"><strong>Enfoque ético y preventivo</strong><span>Protocolos y toma de decisiones</span></span><span class="nav-check">✓</span></button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Área de miembros · Curso</div>
+            <h1>Conductas Sexuales Abusivas entre Niños y Adolescentes</h1>
+            <p>Evaluación, Intervención y Perspectiva Forense. Accede a los módulos, consulta el material principal y descarga los documentos complementarios de la formación.</p>
+          </div>
+          <div class="teacher-card">
+            <small>Disertante</small>
+            <strong>Lic. Mauricio Berón</strong>
+            <span>Psicólogo Judicial y Forense · Especialista en Trauma, Abuso Sexual y Evaluación Psicológica.</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="overview">
+        <div class="stat"><small>Modalidad</small><strong>Online en vivo + grabación</strong></div>
+        <div class="stat"><small>Duración</small><strong>3 horas</strong></div>
+        <div class="stat"><small>Contenido</small><strong>5 módulos temáticos</strong></div>
+        <div class="stat"><small>Incluye</small><strong>PDFs + bibliografía + certificado</strong></div>
+      </div>
+
+      <section class="section" id="modulesSection">
+        <div class="section-title">
+          <div><h2>Contenido de la formación</h2><p>Avanza módulo por módulo y marca tu progreso.</p></div>
+        </div>
+        <div class="module-grid">
+          <article class="module-card" data-card="1">
+            <div class="module-top"><span class="module-badge">Módulo 01</span><button class="complete-btn" data-complete="1">Marcar como visto</button></div>
+            <h3>Comprensión del fenómeno</h3>
+            <p>Diferencias entre exploración sexual infantil y conductas sexualizadas problemáticas, criterios entre juego, curiosidad y abuso, factores de vulnerabilidad y contexto digital.</p>
+            <div class="module-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/material-principal.pdf#page=1" data-title="Módulo 01 · Comprensión del fenómeno">Abrir material</button></div>
+          </article>
+
+          <article class="module-card" data-card="2">
+            <div class="module-top"><span class="module-badge">Módulo 02</span><button class="complete-btn" data-complete="2">Marcar como visto</button></div>
+            <h3>Conductas abusivas entre pares</h3>
+            <p>Conductas de abuso entre niños y preadolescentes, diferencias de edad, dinámicas de poder y sumisión, coerción, manipulación e intimidación.</p>
+            <div class="module-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/material-principal.pdf#page=7" data-title="Módulo 02 · Conductas abusivas entre pares">Abrir material</button></div>
+          </article>
+
+          <article class="module-card" data-card="3">
+            <div class="module-top"><span class="module-badge">Módulo 03</span><button class="complete-btn" data-complete="3">Marcar como visto</button></div>
+            <h3>Evaluación clínica y forense</h3>
+            <p>Entrevista psicoforense, escucha no sugestiva, observación, juego diagnóstico, análisis criteriológico y principio del mejor interés superior del niño.</p>
+            <div class="module-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/material-principal.pdf#page=17" data-title="Módulo 03 · Evaluación clínica y forense">Abrir material</button></div>
+          </article>
+
+          <article class="module-card" data-card="4">
+            <div class="module-top"><span class="module-badge">Módulo 04</span><button class="complete-btn" data-complete="4">Marcar como visto</button></div>
+            <h3>Intervención clínica y psicosocial</h3>
+            <p>Intervenir sin revictimizar ni patologizar, enfoque restaurativo, trabajo con familias y escuelas y coordinación entre educación, salud, INAU y justicia.</p>
+            <div class="module-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/material-principal.pdf#page=24" data-title="Módulo 04 · Intervención clínica y psicosocial">Abrir material</button></div>
+          </article>
+
+          <article class="module-card" data-card="5">
+            <div class="module-top"><span class="module-badge">Módulo 05</span><button class="complete-btn" data-complete="5">Marcar como visto</button></div>
+            <h3>Enfoque ético y preventivo</h3>
+            <p>Protocolos institucionales, niveles de riesgo, toma de decisiones, ética profesional, coordinación interinstitucional e integración clínica, forense y comunitaria.</p>
+            <div class="module-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/material-principal.pdf#page=31" data-title="Módulo 05 · Enfoque ético y preventivo">Abrir material</button></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title"><div><h2>Materiales del curso</h2><p>Todos los documentos enviados para esta formación están incluidos en este paquete.</p></div></div>
+        <div class="materials">
+          <article class="material-card">
+            <div class="material-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h8l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.8"/><path d="M14 3v5h5M9 13h6M9 17h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <small>PDF · 3 páginas</small>
+            <h3>Programa de la formación</h3>
+            <p>Objetivo general, módulos temáticos, modalidad, materiales incluidos y datos del disertante.</p>
+            <div class="material-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/programa-formacion.pdf" data-title="Programa de la formación">Ver PDF</button><a class="btn btn-light" href="materiales/programa-formacion.pdf" download>Descargar</a></div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z" stroke="currentColor" stroke-width="1.8"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H19" stroke="currentColor" stroke-width="1.8"/></svg></div>
+            <small>PDF · 50 páginas</small>
+            <h3>Material principal</h3>
+            <p>Documento completo de estudio sobre evaluación, intervención, perspectiva forense, protocolos, ética y prevención.</p>
+            <div class="material-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/material-principal.pdf" data-title="Material principal">Ver PDF</button><a class="btn btn-light" href="materiales/material-principal.pdf" download>Descargar</a></div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h7M8 12h7M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <small>PDF · 3 páginas</small>
+            <h3>Bibliografía en Español</h3>
+            <p>Guías institucionales y bibliografía sobre abuso sexual infantil, trauma, CSP, evaluación, apego y psicología forense.</p>
+            <div class="material-actions"><button class="btn btn-primary open-pdf" data-pdf="materiales/bibliografia-espanol.pdf" data-title="Bibliografía en Español">Ver PDF</button><a class="btn btn-light" href="materiales/bibliografia-espanol.pdf" download>Descargar</a></div>
+          </article>
+        </div>
+        <div class="notice"><strong>Nota:</strong> la grabación de la jornada figura como material incluido en la formación, pero todavía no fue enviada en este paquete. Cuando tengas el video, se puede agregar como una clase dentro de esta misma área sin cambiar el resto del diseño.</div>
+      </section>
+
+
+      <section class="section certificate-section" id="certificateSection">
+        <div class="cert-shell">
+          <div class="cert-copy">
+            <div class="cert-kicker">Certificado digital</div>
+            <h2>Completa la formación y emite tu certificado</h2>
+            <p>El certificado se habilita cuando tu progreso llega al 100%. Se genera en PDF con tu nombre, la formación realizada, una carga horaria de 3 horas, fecha de emisión y un código único.</p>
+          </div>
+          <div class="cert-panel">
+            <div class="cert-status">
+              <div class="cert-lock" id="certLock">🔒</div>
+              <div><strong id="certStatusTitle">Certificado bloqueado</strong><span id="certStatusText">Completa los 5 módulos para habilitarlo.</span></div>
+            </div>
+            <button class="cert-btn" id="certificateBtn" disabled>Emitir mi certificado</button>
+            <div class="cert-existing" id="certExisting">
+              <small>Certificado emitido</small>
+              <strong id="certExistingCode"></strong>
+              <button class="btn btn-light" id="redownloadCert" type="button">Descargar nuevamente</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section viewer" id="viewerSection">
+        <div class="viewer-head"><div><strong id="viewerTitle">Material</strong><span>Visualización dentro del área de miembros</span></div><button class="close-viewer" id="closeViewer">Cerrar</button></div>
+        <iframe id="pdfFrame" title="Visor PDF"></iframe>
+      </section>
+
+      <div class="footer">Formación profesional · Lic. Mauricio Berón</div>
+    </main>
+  </div>
+
+
+  <div class="modal-backdrop" id="certificateModal" aria-hidden="true">
+    <div class="cert-modal" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+      <div class="cert-modal-head">
+        <div><h3 id="certModalTitle">Emitir certificado</h3><p>Escribe tu nombre exactamente como deseas que aparezca en el documento.</p></div>
+        <button class="cert-modal-close" id="closeCertificateModal" type="button">×</button>
+      </div>
+      <div class="cert-form">
+        <div class="field"><label for="studentName">Nombre completo</label><input id="studentName" type="text" autocomplete="name" maxlength="90" placeholder="Ej.: Juan Pérez" /></div>
+        <label class="confirm-row"><input type="checkbox" id="nameConfirm" /> <span>Confirmo que el nombre está escrito correctamente. El certificado se emitirá con estos datos.</span></label>
+        <div class="cert-actions"><button class="cert-generate" id="generateCertificate" type="button">Generar certificado PDF</button><button class="cert-cancel" id="cancelCertificate" type="button">Cancelar</button></div>
+        <div class="cert-message" id="certMessage"></div>
+      </div>
+    </div>
+  </div>
+  <div id="qrHidden" aria-hidden="true"></div>
+
+  <script>
+    const STORAGE_KEY='mauricio_csa_progress_v1';
+    const completed=new Set(JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]').map(String));
+    const CERT_STORAGE_KEY='mauricio_csa_certificate_v1';
+    const COURSE_TITLE='Conductas Sexuales Abusivas entre Niños y Adolescentes: Evaluación, Intervención y Perspectiva Forense';
+    let certificateData=JSON.parse(localStorage.getItem(CERT_STORAGE_KEY)||'null');
+    const certificateBtn=document.getElementById('certificateBtn');
+    const certificateModal=document.getElementById('certificateModal');
+    const certStatusTitle=document.getElementById('certStatusTitle');
+    const certStatusText=document.getElementById('certStatusText');
+    const certLock=document.getElementById('certLock');
+    const certExisting=document.getElementById('certExisting');
+    const certExistingCode=document.getElementById('certExistingCode');
+    const certMessage=document.getElementById('certMessage');
+    const studentName=document.getElementById('studentName');
+    const nameConfirm=document.getElementById('nameConfirm');
+
+    function randomCode(){
+      const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let out='';
+      const arr=new Uint32Array(6);
+      if(window.crypto&&crypto.getRandomValues) crypto.getRandomValues(arr);
+      else for(let i=0;i<arr.length;i++) arr[i]=Math.floor(Math.random()*chars.length);
+      for(let i=0;i<6;i++) out+=chars[arr[i]%chars.length];
+      return out;
+    }
+    function createCertificateRecord(name){
+      const now=new Date();
+      return {
+        name:name.trim().replace(/\s+/g,' '),
+        code:`MB-CSA-${now.getFullYear()}-${randomCode()}`,
+        isoDate:now.toISOString(),
+        displayDate:new Intl.DateTimeFormat('es-UY',{day:'2-digit',month:'long',year:'numeric'}).format(now),
+        course:COURSE_TITLE,
+        hours:'3 horas'
+      };
+    }
+    function renderCertificateState(){
+      const unlocked=completed.size===5;
+      certificateBtn.disabled=!unlocked;
+      if(unlocked){
+        certLock.textContent='✓';
+        certStatusTitle.textContent='Certificado habilitado';
+        certStatusText.textContent=certificateData?'Ya tienes un certificado emitido.':'Tu progreso llegó al 100%. Ya puedes emitirlo.';
+        certificateBtn.textContent=certificateData?'Emitir / actualizar certificado':'Emitir mi certificado';
+      }else{
+        certLock.textContent='🔒';
+        certStatusTitle.textContent='Certificado bloqueado';
+        certStatusText.textContent=`Completa los 5 módulos para habilitarlo. (${completed.size}/5)`;
+        certificateBtn.textContent='Emitir mi certificado';
+      }
+      if(certificateData){
+        certExisting.classList.add('show');
+        certExistingCode.textContent=certificateData.code+' · '+certificateData.name;
+      }else{
+        certExisting.classList.remove('show');
+      }
+    }
+    function openCertificateModal(){
+      if(completed.size!==5) return;
+      certMessage.textContent='';
+      nameConfirm.checked=false;
+      if(certificateData?.name) studentName.value=certificateData.name;
+      certificateModal.classList.add('show');
+      certificateModal.setAttribute('aria-hidden','false');
+      setTimeout(()=>studentName.focus(),50);
+    }
+    function closeCertificateModal(){
+      certificateModal.classList.remove('show');
+      certificateModal.setAttribute('aria-hidden','true');
+    }
+    async function makeQrDataUrl(text){
+      const node=document.getElementById('qrHidden');
+      node.innerHTML='';
+      if(typeof QRCode==='undefined') return null;
+      new QRCode(node,{text,width:220,height:220,colorDark:'#211d25',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
+      await new Promise(r=>setTimeout(r,80));
+      const canvas=node.querySelector('canvas');
+      const img=node.querySelector('img');
+      return canvas?canvas.toDataURL('image/png'):(img?img.src:null);
+    }
+    async function downloadCertificate(data){
+      if(!window.jspdf?.jsPDF){
+        alert('No se pudo cargar el generador de PDF. Verifica tu conexión a internet e inténtalo nuevamente.');
+        return;
+      }
+      const {jsPDF}=window.jspdf;
+      const doc=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'});
+      const W=297,H=210;
+      doc.setFillColor(248,246,251); doc.rect(0,0,W,H,'F');
+      doc.setDrawColor(117,97,143); doc.setLineWidth(1.2); doc.rect(10,10,W-20,H-20);
+      doc.setDrawColor(205,194,216); doc.setLineWidth(.35); doc.rect(14,14,W-28,H-28);
+      doc.setFillColor(33,29,37); doc.roundedRect(23,22,24,24,4,4,'F');
+      doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(14); doc.text('MB',35,37,{align:'center'});
+      doc.setTextColor(117,97,143); doc.setFontSize(10); doc.text('FORMACIÓN PROFESIONAL',148.5,31,{align:'center'});
+      doc.setTextColor(33,29,37); doc.setFontSize(25); doc.text('CERTIFICADO DE PARTICIPACIÓN',148.5,47,{align:'center'});
+      doc.setFont('helvetica','normal'); doc.setTextColor(117,109,123); doc.setFontSize(11); doc.text('Se certifica que',148.5,63,{align:'center'});
+      doc.setFont('helvetica','bold'); doc.setTextColor(33,29,37); doc.setFontSize(24);
+      const nameLines=doc.splitTextToSize(data.name.toUpperCase(),190); doc.text(nameLines,148.5,76,{align:'center'});
+      let y=76+(nameLines.length-1)*9+13;
+      doc.setFont('helvetica','normal'); doc.setTextColor(117,109,123); doc.setFontSize(10.5); doc.text('ha completado la formación',148.5,y,{align:'center'});
+      y+=11;
+      doc.setFont('helvetica','bold'); doc.setTextColor(58,47,67); doc.setFontSize(15);
+      const courseLines=doc.splitTextToSize(COURSE_TITLE,205); doc.text(courseLines,148.5,y,{align:'center'});
+      y+=courseLines.length*7+8;
+      doc.setFont('helvetica','normal'); doc.setTextColor(83,73,91); doc.setFontSize(10);
+      doc.text('Dictada por Lic. Mauricio Berón · Psicólogo Judicial y Forense',148.5,y,{align:'center'});
+      y+=8; doc.text('Carga horaria: 3 horas   ·   Modalidad: Online   ·   Fecha de emisión: '+data.displayDate,148.5,y,{align:'center'});
+      const qrText=`Certificado: ${data.code}\nAlumno: ${data.name}\nCurso: ${COURSE_TITLE}\nCarga horaria: 3 horas\nFecha: ${data.displayDate}\nEmitido por: Lic. Mauricio Berón`;
+      const qr=await makeQrDataUrl(qrText);
+      if(qr) doc.addImage(qr,'PNG',236,145,28,28);
+      doc.setDrawColor(90,78,99); doc.setLineWidth(.4); doc.line(57,165,116,165);
+      doc.setFont('helvetica','bold'); doc.setTextColor(50,43,55); doc.setFontSize(10); doc.text('Lic. Mauricio Berón',86.5,171,{align:'center'});
+      doc.setFont('helvetica','normal'); doc.setTextColor(126,116,132); doc.setFontSize(8.5); doc.text('Psicólogo Judicial y Forense',86.5,176,{align:'center'});
+      doc.setTextColor(126,116,132); doc.setFontSize(8.5); doc.text('Código único',199,153,{align:'center'});
+      doc.setFont('helvetica','bold'); doc.setTextColor(58,47,67); doc.setFontSize(10); doc.text(data.code,199,160,{align:'center'});
+      doc.setFont('helvetica','normal'); doc.setTextColor(151,141,157); doc.setFontSize(7.5); doc.text('Documento digital emitido desde el área de miembros.',148.5,191,{align:'center'});
+      const safeName=data.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase();
+      doc.save(`certificado-${safeName||'alumno'}-conductas-sexuales-abusivas.pdf`);
+    }
+    const progressBar=document.getElementById('progressBar');
+    const progressText=document.getElementById('progressText');
+    function renderProgress(){
+      document.querySelectorAll('[data-complete]').forEach(btn=>{
+        const id=btn.dataset.complete;
+        const done=completed.has(id);
+        btn.classList.toggle('done',done);
+        btn.textContent=done?'✓ Visto':'Marcar como visto';
+        const nav=document.querySelector(`.nav-item[data-module="${id}"]`);
+        if(nav) nav.classList.toggle('done',done);
+      });
+      const pct=Math.round((completed.size/5)*100);
+      progressBar.style.width=pct+'%';
+      progressText.textContent=pct+'%';
+      localStorage.setItem(STORAGE_KEY,JSON.stringify([...completed]));
+      renderCertificateState();
+    }
+    document.querySelectorAll('[data-complete]').forEach(btn=>btn.addEventListener('click',()=>{
+      const id=btn.dataset.complete;
+      completed.has(id)?completed.delete(id):completed.add(id);
+  
+    certificateBtn.addEventListener('click',openCertificateModal);
+    document.getElementById('closeCertificateModal').addEventListener('click',closeCertificateModal);
+    document.getElementById('cancelCertificate').addEventListener('click',closeCertificateModal);
+    certificateModal.addEventListener('click',e=>{if(e.target===certificateModal) closeCertificateModal();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&certificateModal.classList.contains('show')) closeCertificateModal();});
+    document.getElementById('generateCertificate').addEventListener('click',async()=>{
+      const name=studentName.value.trim().replace(/\s+/g,' ');
+      certMessage.textContent='';
+      if(name.length<5 || !name.includes(' ')){
+        certMessage.textContent='Escribe tu nombre completo.';
+        studentName.focus();
+        return;
+      }
+      if(!nameConfirm.checked){
+        certMessage.textContent='Confirma que el nombre está escrito correctamente.';
+        return;
+      }
+      const btn=document.getElementById('generateCertificate');
+      btn.disabled=true; btn.textContent='Generando…';
+      try{
+        certificateData=createCertificateRecord(name);
+        localStorage.setItem(CERT_STORAGE_KEY,JSON.stringify(certificateData));
+        renderCertificateState();
+        await downloadCertificate(certificateData);
+        closeCertificateModal();
+      }finally{
+        btn.disabled=false; btn.textContent='Generar certificado PDF';
+      }
+    });
+    document.getElementById('redownloadCert').addEventListener('click',()=>{if(certificateData) downloadCertificate(certificateData);});
+    renderProgress();
+    }));
+    document.querySelectorAll('.nav-item').forEach(item=>item.addEventListener('click',()=>{
+      document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));
+      item.classList.add('active');
+      const card=document.querySelector(`[data-card="${item.dataset.module}"]`);
+      if(card) card.scrollIntoView({behavior:'smooth',block:'center'});
+      if(innerWidth<=820) document.getElementById('sidebar').classList.remove('open');
+    }));
+    const viewer=document.getElementById('viewerSection');
+    const frame=document.getElementById('pdfFrame');
+    const viewerTitle=document.getElementById('viewerTitle');
+    document.querySelectorAll('.open-pdf').forEach(btn=>btn.addEventListener('click',()=>{
+      frame.src=btn.dataset.pdf;
+      viewerTitle.textContent=btn.dataset.title||'Material';
+      viewer.classList.add('show');
+      setTimeout(()=>viewer.scrollIntoView({behavior:'smooth',block:'start'}),40);
+    }));
+    document.getElementById('closeViewer').addEventListener('click',()=>{
+      viewer.classList.remove('show');
+      frame.src='';
+    });
+    document.getElementById('mobileToggle').addEventListener('click',()=>document.getElementById('sidebar').classList.toggle('open'));
+    renderProgress();
+  </script>
+</body>
+</html>

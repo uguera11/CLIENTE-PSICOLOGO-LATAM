@@ -1,0 +1,30 @@
+MAURICIO BERÓN — LOGIN REAL V2
+
+ESTE PATCH NÃO ALTERA:
+- cursos/index.html
+- cursos/curso.html
+- as páginas públicas de venda que acabaram de ser restauradas
+
+COPIAR PARA A RAIZ DO REPOSITÓRIO:
+- package.json
+- vercel.json
+- api/
+- lib/
+- private-dashboard/
+- private-courses/
+- cursos/login/
+- cursos/admin-alunos/
+
+NÃO APAGUE NADA AINDA. Primeiro vamos testar o login real.
+
+Antes do teste de aluno, adicionar na Vercel:
+SITE_URL = https://psicologomauricioberon.com
+COURSE_ADMIN_KEY = uma chave longa, aleatória e secreta
+
+As 3 variáveis Firebase já configuradas permanecem como estão.
+
+Depois do deploy:
+1. /cursos/login/ deve abrir o login real.
+2. /cursos/admin-alunos/ serve para habilitar UM curso para um e-mail de teste.
+3. O aluno recebe e-mail para criar senha e entra em /cursos/minha-area/.
+4. Vamos confirmar que ele vê somente o curso habilitado e que outro curso é bloqueado.
