@@ -86,6 +86,16 @@
     .main-nav a:not(.nav-contact):after{content:"";position:absolute;left:0;right:100%;bottom:22px;height:1px;background:#202522;transition:.25s ease}
     .main-nav a:hover:after,.main-nav a.active:after{right:0}
     .main-nav a.active{font-weight:700}
+    .nav-student{
+      padding:11px 16px!important;
+      border:1px solid #d8d1df;
+      border-radius:8px;
+      color:#5d4b72!important;
+      font-weight:800!important;
+      background:#fff;
+    }
+    .nav-student:after{display:none!important}
+    .nav-student:hover{border-color:#8b78a4;background:#f7f3fa}
     .nav-contact{
       padding:14px 24px!important;
       border-radius:2px;
@@ -445,6 +455,7 @@
         <a href="https://www.psicologomauricioberon.com/#areas">Áreas</a>
         <a class="active" href="#cursos">Cursos</a>
         <a href="https://www.psicologomauricioberon.com/#consultorio">Consultorio</a>
+        <a class="nav-student" href="/cursos/login/">Área de alumnos</a>
         <a class="nav-contact" href="https://www.psicologomauricioberon.com/#contacto">Contacto</a>
       </nav>
     </div>
@@ -462,6 +473,7 @@
             <p>Explora cursos y masterclasses en psicología clínica, jurídica y forense, pensados para llevar conceptos rigurosos a la práctica profesional.</p>
             <div class="hero-actions">
               <a class="btn btn-dark" href="#cursos">Explorar cursos <span>↓</span></a>
+              <a class="btn btn-light" href="/cursos/login/">¿Ya eres alumno? Ingresar</a>
               <a class="btn btn-light" href="#como-funciona">Cómo funciona</a>
             </div>
             <div class="hero-categories" aria-label="Áreas de formación">
