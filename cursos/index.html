@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Cursos y formaciones profesionales del Lic. Mauricio Berón en psicología clínica, forense, evaluación, trauma y victimología." />
+  <title>Cursos y Formaciones | Lic. Mauricio Berón</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#171a18;
+      --muted:#6e746f;
+      --line:#e7e9e6;
+      --soft:#f8f6fb;
+      --soft-2:#f0ecf5;
+      --green:#75618f;
+      --green-2:#8b78a4;
+      --green-soft:#ebe5f2;
+      --cream:#f7f3fa;
+      --white:#fff;
+      --max:1220px;
+      --radius:18px;
+      --shadow:0 16px 44px rgba(70,52,91,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--bg);
+      font-family:Manrope,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    button{color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+
+    /* Tipografía principal: la misma familia visual de la primera dobra */
+    h1,h2,h3,h4,.section-title,.feature-copy h2,.faq-intro h2,.cta-box h2,.course-card h3,.cover-copy strong,.visual-card strong,.feature-floating b,.price strong{
+      font-family:Manrope,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    body{border-top:5px solid #4a4632}
+
+    .promo{display:none}
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(250,250,248,.97);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid #e9e9e5;
+      box-shadow:0 4px 22px rgba(23,26,24,.025);
+    }
+    .head-main{
+      min-height:82px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:42px;
+    }
+    .brand{display:flex;align-items:center;gap:13px;min-width:max-content}
+    .brand-mark{
+      width:40px;height:40px;
+      border-radius:0;
+      border:1px solid #202723;
+      background:transparent;
+      color:#202723;
+      display:grid;
+      place-items:center;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:17px;
+      font-weight:600;
+      letter-spacing:-.03em;
+    }
+    .brand-copy strong{display:block;font-family:Manrope,sans-serif;font-weight:700;font-size:13px;line-height:1.12;letter-spacing:-.015em}
+    .brand-copy span{display:block;margin-top:5px;color:#8a918c;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase}
+    .main-nav{justify-self:end;display:flex;align-items:center;gap:31px;font-size:11px;font-weight:500;color:#202522}
+    .main-nav a{position:relative;padding:31px 0 29px;transition:color .2s ease}
+    .main-nav a:not(.nav-contact):after{content:"";position:absolute;left:0;right:100%;bottom:22px;height:1px;background:#202522;transition:.25s ease}
+    .main-nav a:hover:after,.main-nav a.active:after{right:0}
+    .main-nav a.active{font-weight:700}
+    .nav-contact{
+      padding:14px 24px!important;
+      border-radius:2px;
+      background:#111a20;
+      color:#fff!important;
+      font-weight:800!important;
+      letter-spacing:.01em;
+      transition:transform .2s ease,background .2s ease!important;
+    }
+    .nav-contact:hover{background:#263239;transform:translateY(-1px)}
+    .head-actions{display:none}
+
+    .hero{
+      background:#f8f6fb;
+      padding:78px 0 46px;
+      border-bottom:1px solid #e8e1ef;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,.9fr) minmax(500px,1.1fr);
+      gap:72px;
+      align-items:center;
+    }
+    .kicker{font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:17px}
+    h1{
+      margin:0;
+      max-width:720px;
+      font-family:Manrope,ui-sans-serif,sans-serif;
+      font-weight:800;
+      font-size:clamp(46px,4.8vw,68px);
+      line-height:1.04;
+      letter-spacing:-.055em;
+    }
+    h1 em{font-style:normal;font-weight:800;color:var(--green)}
+    .hero-copy>p{
+      max-width:610px;
+      margin:22px 0 0;
+      color:#665f6d;
+      font-size:17px;
+      line-height:1.65;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-topline{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:20px}
+    .hero-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #e6dfed;border-radius:999px;padding:9px 12px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5b4e68}
+    .hero-pill:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+    .hero-categories{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+    .hero-categories span{font-size:11px;font-weight:750;color:#67706a;border-bottom:1px solid #bec6c1;padding-bottom:3px}
+
+    .btn{
+      min-height:48px;
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:0 20px;
+      border-radius:10px;
+      font-weight:800;
+      font-size:13px;
+      border:1px solid transparent;
+      transition:.22s ease;
+    }
+    .btn-dark{background:var(--green);color:#fff}
+    .btn-dark:hover{background:#5d4b72;transform:translateY(-1px)}
+    .btn-light{background:#fff;border-color:#d9dcd9}
+    .btn-light:hover{border-color:#aab1ac}
+
+    .hero-visual{
+      position:relative;
+      min-height:500px;
+      border-radius:24px;
+      overflow:hidden;
+      background:#e4ddec;
+      box-shadow:0 32px 72px rgba(70,52,91,.16);
+    }
+    .hero-photo{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 22%;
+      filter:saturate(.92) contrast(1.02);
+    }
+    .hero-visual:before{
+      content:"";
+      position:absolute;inset:0;z-index:1;
+      background:linear-gradient(180deg,rgba(45,31,57,.01) 24%,rgba(45,31,57,.10) 53%,rgba(45,31,57,.82) 100%);
+      pointer-events:none;
+    }
+    .hero-person{
+      position:absolute;
+      top:22px;left:22px;z-index:2;
+      display:inline-flex;align-items:center;gap:9px;
+      background:rgba(250,250,248,.90);
+      border:1px solid rgba(255,255,255,.72);
+      box-shadow:0 10px 30px rgba(70,52,91,.11);
+      backdrop-filter:blur(12px);
+      border-radius:999px;
+      padding:9px 13px 9px 10px;
+      color:#1e2824;
+      font-size:10px;font-weight:800;letter-spacing:.055em;text-transform:uppercase;
+    }
+    .hero-person:before{content:"MB";width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-family:"Cormorant Garamond",Georgia,serif;font-size:13px;letter-spacing:0}
+
+    .course-visual-tag{
+      position:absolute;z-index:2;right:20px;top:20px;
+      background:#fff;color:#24352f;border:1px solid rgba(255,255,255,.85);
+      border-radius:12px;padding:12px 14px;box-shadow:0 14px 34px rgba(20,32,27,.14);
+      font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;
+    }
+    .course-visual-tag b{display:block;font-family:Manrope,ui-sans-serif,sans-serif;font-size:20px;line-height:1.08;font-weight:800;letter-spacing:-.035em;text-transform:none;margin-bottom:4px;color:var(--green)}
+    .course-visual-meta{position:absolute;z-index:2;left:22px;bottom:150px;display:flex;gap:8px;flex-wrap:wrap}
+    .course-visual-meta span{background:rgba(20,34,29,.78);backdrop-filter:blur(10px);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 10px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .visual-card{
+      position:absolute;
+      z-index:2;
+      left:22px;right:22px;bottom:22px;
+      background:rgba(250,250,248,.94);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,.86);
+      border-radius:18px;
+      padding:20px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:16px;
+      align-items:end;
+      box-shadow:0 18px 46px rgba(14,25,21,.16);
+    }
+    .visual-card small{display:block;color:#738078;font-size:9px;font-weight:850;letter-spacing:.13em;text-transform:uppercase;margin-bottom:8px}
+    .visual-card strong{font-family:Manrope,ui-sans-serif,sans-serif;font-size:25px;line-height:1.08;font-weight:800;display:block;max-width:430px;letter-spacing:-.04em}
+    .visual-date{width:68px;height:68px;border-radius:14px;background:var(--green);color:#fff;display:grid;place-items:center;text-align:center;font-weight:800;font-size:10px;line-height:1.05;box-shadow:0 14px 30px rgba(41,71,61,.24)}
+    .visual-date b{display:block;font-size:24px;line-height:1}
+
+    .trust-strip{
+      margin-top:36px;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:16px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      box-shadow:0 14px 42px rgba(18,28,24,.05);
+      overflow:hidden;
+    }
+    .trust-item{padding:24px 20px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;text-align:center;min-height:132px}
+    .trust-item:last-child{border-right:0}
+    .trust-icon{width:54px;height:54px;border-radius:50%;background:var(--soft-2);display:flex;align-items:center;justify-content:center;color:var(--green);flex:0 0 auto}
+    .trust-icon svg{display:block;width:24px;height:24px;margin:0 auto;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+    .trust-item strong{display:block;font-size:13px;font-weight:800;margin-bottom:3px;letter-spacing:-.01em}
+    .trust-item span{display:block;color:#818782;font-size:11px;line-height:1.45;max-width:180px}
+
+    section{padding:74px 0}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:30px}
+    .section-title{margin:0;font-family:Manrope,ui-sans-serif,sans-serif;font-size:40px;line-height:1.06;font-weight:800;letter-spacing:-.05em}
+    .section-head p{margin:0;max-width:500px;color:var(--muted);font-size:14px;line-height:1.65}
+    .link-more{font-size:12px;font-weight:850;white-space:nowrap;border-bottom:1px solid #aab1ac;padding-bottom:4px}
+
+    .toolbar{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:16px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .filter{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:11px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .filter.active,.filter:hover{background:var(--green);border-color:var(--green);color:#fff}
+    .catalog-search{
+      min-width:260px;
+      display:flex;align-items:center;gap:8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      height:42px;padding:0 14px;
+      background:#fff;
+    }
+    .catalog-search input{border:0;outline:0;background:transparent;width:100%;font-size:12px}
+
+    .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .course-card{
+      display:flex;flex-direction:column;min-width:0;
+      border:1px solid var(--line);background:#fff;border-radius:18px;overflow:hidden;
+      transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+    }
+    .course-card:hover{transform:translateY(-5px);box-shadow:0 22px 54px rgba(70,52,91,.12);border-color:#ded4e7}
+    .cover{position:relative;aspect-ratio:1.66/1;overflow:hidden;background:#eee9f4}
+    .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+    .course-card:hover .cover img{transform:scale(1.035)}
+    .cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(34,25,44,.20) 100%);pointer-events:none}
+    .badge{
+      position:absolute;z-index:2;top:14px;left:14px;
+      background:rgba(255,255,255,.93);color:#6b5682;
+      padding:8px 10px;border-radius:999px;font-size:9px;font-weight:900;
+      text-transform:uppercase;letter-spacing:.08em;box-shadow:0 8px 24px rgba(36,26,47,.10)
+    }
+    .card-body{padding:21px 20px 19px;display:flex;flex-direction:column;flex:1}
+    .type{font-size:9px;text-transform:uppercase;letter-spacing:.11em;font-weight:900;color:#8b78a4;margin-bottom:10px}
+    .course-card h3{font-size:20px;line-height:1.16;font-weight:800;letter-spacing:-.04em;margin:0 0 10px}
+    .teacher{font-size:11px;color:#8a8390;margin-bottom:12px}
+    .desc{font-size:12px;color:#716977;line-height:1.62;margin:0 0 19px}
+    .card-footer{margin-top:auto;padding-top:15px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .price-tag{font-weight:900;color:var(--violet);letter-spacing:-.01em}
+    .course-mode{font-size:10px;font-weight:750;color:#756d7b;display:flex;align-items:center;gap:6px}
+    .course-mode:before{content:"";width:7px;height:7px;border-radius:50%;background:#a993be}
+    .course-cta{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:900;color:var(--green)}
+    .course-cta i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;transition:transform .2s ease}
+    .course-cta:hover i{transform:translateX(2px)}
+
+
+    .course-detail{padding:86px 0;background:#f1f3f0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);scroll-margin-top:92px}
+    .course-detail-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:58px;align-items:stretch}
+    .course-detail-media{position:relative;min-height:590px;border-radius:24px;overflow:hidden;background-size:cover;background-position:center;box-shadow:0 28px 64px rgba(27,45,38,.13)}
+    .course-detail-media:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,18,.05) 0%,rgba(10,22,18,.20) 52%,rgba(10,22,18,.78) 100%)}
+    .detail-media-label{position:absolute;top:22px;left:22px;z-index:2;background:rgba(255,255,255,.94);color:var(--green);border-radius:999px;padding:9px 12px;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+    .detail-media-copy{position:absolute;left:28px;right:28px;bottom:28px;z-index:2;color:#fff}
+    .detail-media-copy small{display:block;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+    .detail-media-copy strong{display:block;font-size:31px;line-height:1.05;letter-spacing:-.045em;font-weight:800;max-width:490px}
+    .course-detail-copy{background:#fff;border:1px solid var(--line);border-radius:24px;padding:44px 46px;display:flex;flex-direction:column;justify-content:center}
+    .course-detail-copy .kicker{margin-bottom:14px}
+    .course-detail-copy h2{font-size:48px;line-height:1.02;letter-spacing:-.06em;margin:0 0 12px;font-weight:800}
+    .detail-subtitle{font-size:18px;line-height:1.45;font-weight:650;color:#39453f;margin-bottom:8px}
+    .detail-teacher{font-size:12px;color:#7a827d;margin-bottom:24px}
+    .detail-intro{font-size:14px;line-height:1.8;color:#69716c;margin:0 0 28px;max-width:680px}
+    .detail-meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:28px}
+    .detail-meta div{padding:16px 14px 16px 0;border-right:1px solid var(--line)}
+    .detail-meta div:not(:first-child){padding-left:14px}
+    .detail-meta div:last-child{border-right:0}
+    .detail-meta small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.11em;color:#969d98;font-weight:850;margin-bottom:5px}
+    .detail-meta strong{display:block;font-size:12px;line-height:1.35;color:#26312c}
+    .detail-includes{margin-bottom:28px}
+    .detail-includes h3{font-size:13px;margin:0 0 12px;letter-spacing:-.02em}
+    .include-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .include-item{display:flex;align-items:center;gap:10px;background:#f5f7f4;border:1px solid #e6eae6;border-radius:12px;padding:12px;font-size:11px;font-weight:700;color:#455149}
+    .include-item svg{width:18px;height:18px;fill:none;stroke:var(--green);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+    .detail-buy{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;padding-top:4px}
+    .detail-price small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#8e9691;margin-bottom:5px;font-weight:800}
+    .detail-price strong{font-size:30px;line-height:1;font-weight:800;letter-spacing:-.04em}
+    .detail-buy .btn{min-width:170px}
+    .detail-note{margin:14px 0 0;color:#8a928d;font-size:10px;line-height:1.5}
+
+    .featured-band{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .feature-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:58px;align-items:center}
+    .feature-stage{position:relative;min-height:420px;border-radius:20px;background-image:linear-gradient(180deg,rgba(14,24,21,.03),rgba(14,24,21,.16)),url('assets/feature-formacion.webp');background-size:cover;background-position:center;overflow:hidden;box-shadow:0 24px 54px rgba(27,45,38,.10)}
+    .feature-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(12,23,19,.18) 100%);pointer-events:none}
+    .feature-stage:after{display:none}
+    .feature-floating{position:absolute;left:24px;right:24px;bottom:24px;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.8);border-radius:15px;padding:18px;box-shadow:0 20px 48px rgba(0,0,0,.16)}
+    .feature-floating b{display:block;font-family:Manrope,ui-sans-serif,sans-serif;font-size:21px;font-weight:800;letter-spacing:-.04em;margin-bottom:7px}
+    .feature-floating span{font-size:11px;color:#7d7484}
+    .feature-copy .kicker{margin-bottom:14px}
+    .feature-copy h2{font-family:Manrope,ui-sans-serif,sans-serif;font-size:46px;line-height:1.04;letter-spacing:-.055em;font-weight:800;margin:0 0 18px}
+    .feature-copy>p{color:var(--muted);font-size:14px;line-height:1.75;margin:0 0 23px}
+    .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+    .feature-list div{border-top:1px solid #e6dfed;padding-top:12px;font-size:12px;line-height:1.45;color:#665d6d}
+    .feature-list strong{display:block;color:var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+
+    .how-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .how-item{padding:28px;border-right:1px solid var(--line);min-height:225px;background:#fff}
+    .how-item:last-child{border-right:0}
+    .how-n{font-family:Manrope,ui-sans-serif,sans-serif;font-size:34px;font-weight:800;letter-spacing:-.05em;color:#9e91ab;display:block;margin-bottom:42px}
+    .how-item h4{font-size:14px;margin:0 0 8px}
+    .how-item p{margin:0;color:#7b827d;font-size:12px;line-height:1.6}
+
+    .faq-wrap{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:start}
+    .faq-intro h2{font-family:Manrope,ui-sans-serif,sans-serif;font-size:42px;line-height:1.05;font-weight:800;letter-spacing:-.055em;margin:0 0 16px}
+    .faq-intro p{color:var(--muted);font-size:13px;line-height:1.7;margin:0}
+    details{border-top:1px solid var(--line);padding:18px 0}
+    details:last-child{border-bottom:1px solid var(--line)}
+    summary{list-style:none;cursor:pointer;font-weight:750;font-size:13px;display:flex;justify-content:space-between;gap:20px}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"+";font-size:18px;font-weight:400}
+    details[open] summary:after{content:"–"}
+    details p{color:#777f7a;font-size:12px;line-height:1.65;max-width:720px;margin:11px 0 0}
+
+    .final-cta{padding:38px 0 76px}
+    .cta-box{background:#4f4161;color:#fff;border-radius:22px;padding:50px 54px;display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;overflow:hidden;position:relative}
+    .cta-box:after{content:"";position:absolute;width:320px;height:320px;border:1px solid rgba(255,255,255,.1);border-radius:50%;right:-70px;top:-160px;box-shadow:0 0 0 60px rgba(255,255,255,.03),0 0 0 120px rgba(255,255,255,.02)}
+    .cta-box h2{position:relative;z-index:1;font-family:Manrope,ui-sans-serif,sans-serif;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.05em;margin:0 0 10px;max-width:700px}
+    .cta-box p{position:relative;z-index:1;margin:0;color:rgba(255,255,255,.68);font-size:13px;line-height:1.65}
+    .cta-box .btn{position:relative;z-index:2;background:#fff;color:#4f4161}
+
+    footer{background:#faf8fc;border-top:1px solid var(--line);padding:48px 0 28px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:45px}
+    .footer-brand p{color:#7d7484;font-size:12px;line-height:1.65;max-width:390px;margin:15px 0 0}
+    .foot-col strong{font-size:11px;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:14px}
+    .foot-col a{display:block;color:#746b7b;font-size:12px;margin:0 0 10px}
+    .copyright{margin-top:35px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#958c9c;font-size:10px}
+
+    .hidden{display:none!important}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:1060px){
+      .head-main{grid-template-columns:auto 1fr}.main-nav{display:none}.head-actions{display:none}
+      .hero-grid{grid-template-columns:1fr .9fr;gap:38px}
+      .course-grid{grid-template-columns:repeat(2,1fr)}
+      .feature-layout{grid-template-columns:1fr 1fr;gap:34px}
+      .course-detail-grid{grid-template-columns:1fr 1fr;gap:30px}.course-detail-copy{padding:34px}.course-detail-copy h2{font-size:42px}.detail-meta{grid-template-columns:1fr 1fr}.detail-meta div:nth-child(2){border-right:0}.detail-meta div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    }
+    @media(max-width:760px){
+      .wrap{width:min(100% - 24px,var(--max))}
+      .head-main{min-height:70px;gap:12px}.brand-copy span{display:block;font-size:7px}.brand-copy strong{font-size:12px}.brand-mark{width:36px;height:36px}
+      .hero{padding:48px 0 28px;background:#f8f6fb}
+      .hero-grid{grid-template-columns:1fr}.hero-copy>p{font-size:16px}.hero-visual{min-height:470px}.hero-photo{object-position:center 20%}.hero-person{top:16px;left:16px}.course-visual-tag{right:16px;top:16px;padding:10px 12px}.course-visual-tag b{font-size:19px}.course-visual-meta{left:16px;bottom:138px}.visual-card{left:16px;right:16px;bottom:16px;padding:16px}.visual-card strong{font-size:23px}.visual-date{width:56px;height:56px}
+      .trust-strip{grid-template-columns:1fr 1fr}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      section{padding:58px 0}.section-head{align-items:flex-start;flex-direction:column;gap:14px}.section-title{font-size:36px}.toolbar{grid-template-columns:1fr}.catalog-search{min-width:0;width:100%}.topic-head{align-items:flex-start;flex-direction:column;gap:10px}.topic-grid{grid-template-columns:1fr 1fr}.topic-card{min-height:82px}
+      .course-grid{grid-template-columns:1fr}
+      .feature-layout,.faq-wrap{grid-template-columns:1fr}.feature-stage{min-height:330px}.feature-copy h2{font-size:38px}.feature-list{grid-template-columns:1fr}
+      .course-detail{padding:58px 0}.course-detail-grid{grid-template-columns:1fr}.course-detail-media{min-height:430px}.course-detail-copy{padding:30px 24px}.course-detail-copy h2{font-size:38px}.detail-meta{grid-template-columns:1fr 1fr}.include-grid{grid-template-columns:1fr 1fr}
+      .how-grid{grid-template-columns:1fr 1fr}.how-item:nth-child(2){border-right:0}.how-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .cta-box{grid-template-columns:1fr;padding:34px 26px}.cta-box h2{font-size:34px}
+      .footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}
+    }
+    @media(max-width:480px){
+      h1{font-size:43px}.hero-actions{flex-direction:column}.btn{width:100%}.hero-categories{margin-top:20px}.hero-visual{min-height:430px}.hero-person{font-size:8px;padding:7px 10px 7px 8px}.hero-person:before{width:24px;height:24px}.course-visual-tag{display:none}.course-visual-meta{bottom:136px}.visual-card{grid-template-columns:1fr auto}.visual-card strong{font-size:21px}
+      .trust-strip{grid-template-columns:1fr}.trust-item{border-right:0!important;border-bottom:1px solid var(--line)!important}.trust-item:last-child{border-bottom:0!important}
+      .how-grid{grid-template-columns:1fr}.how-item{border-right:0!important;border-bottom:1px solid var(--line)}.how-item:last-child{border-bottom:0}
+      .course-detail-media{min-height:370px}.detail-media-copy strong{font-size:25px}.course-detail-copy{padding:26px 20px}.course-detail-copy h2{font-size:34px}.detail-meta{grid-template-columns:1fr}.detail-meta div,.detail-meta div:not(:first-child){padding:12px 0;border-right:0;border-bottom:1px solid var(--line)}.detail-meta div:last-child{border-bottom:0}.include-grid{grid-template-columns:1fr}.detail-buy{align-items:stretch;flex-direction:column}.detail-buy .btn{width:100%}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  
+    /* Paleta violeta suave solicitada para la plataforma */
+    body{border-top-color:#75618f}
+    .header{box-shadow:0 10px 30px rgba(80,61,102,.04)}
+    .nav-contact,.account{background:#4f4161!important;border-color:#4f4161!important;color:#fff!important}
+    .nav-contact:hover,.account:hover{background:#68547f!important}
+    .hero-pill{background:#fff;border-color:#e4dced;color:#5e506c}
+    .hero-categories span{background:#eee9f4!important;border-color:#ded4e7!important;color:#5e506c!important}
+    .trust-icon{background:#eee9f4;color:#75618f}
+    .filter.active,.filter:hover{background:#75618f;border-color:#75618f}
+    .course-cta i{background:#75618f}
+    .featured-band{background:#f8f6fb}
+    .feature-stage:after{background:linear-gradient(180deg,rgba(70,48,92,.02),rgba(70,48,92,.18))}
+    .how-n{color:#a695b5}
+    .cta-box{background:linear-gradient(135deg,#4f4161 0%,#68547f 100%)}
+    .btn-dark{background:#75618f}
+    .btn-dark:hover{background:#624f78}
+    .badge{color:#6b5682}
+
+  
+
+</style>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap head-main">
+      <a class="brand" href="https://www.psicologomauricioberon.com/#inicio">
+        <span class="brand-mark">MB</span>
+        <span class="brand-copy"><strong>Lic. Mauricio Berón</strong><span>Psicología clínica · jurídica · forense</span></span>
+      </a>
+      <div></div>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="https://www.psicologomauricioberon.com/#perfil">Perfil</a>
+        <a href="https://www.psicologomauricioberon.com/#areas">Áreas</a>
+        <a class="active" href="#cursos">Cursos</a>
+        <a href="https://www.psicologomauricioberon.com/#consultorio">Consultorio</a>
+        <a class="nav-contact" href="https://www.psicologomauricioberon.com/#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <div class="hero-topline">
+              <span class="hero-pill">Cursos · Masterclasses · Actualización profesional</span>
+            </div>
+            <h1>Aprende psicología con <em>profundidad y criterio profesional.</em></h1>
+            <p>Explora cursos y masterclasses en psicología clínica, jurídica y forense, pensados para llevar conceptos rigurosos a la práctica profesional.</p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cursos">Explorar cursos <span>↓</span></a>
+              <a class="btn btn-light" href="#como-funciona">Cómo funciona</a>
+            </div>
+            <div class="hero-categories" aria-label="Áreas de formación">
+              <span>Psicología clínica</span><span>Psicología forense</span><span>Evaluación y pericias</span><span>Trauma y apego</span><span>Victimología</span>
+            </div>
+          </div>
+          <div class="hero-visual reveal" aria-label="Lic. Mauricio Berón y formación destacada">
+            <img class="hero-photo" src="assets/mauricio.webp" alt="Lic. Mauricio Berón" />
+            <div class="hero-person">Lic. Mauricio Berón</div>
+            <div class="course-visual-tag"><b>22+</b>Años de experiencia</div>
+            <div class="course-visual-meta"><span>10 formaciones</span><span>Clínica</span><span>Forense</span></div>
+            <div class="visual-card">
+              <div><small>Catálogo profesional</small><strong>Diez formaciones en psicología clínica, forense, trauma, evaluación y victimología.</strong></div>
+              <div class="visual-date"><span><b>10</b>CURSOS</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="trust-strip reveal">
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M8 12.5 10.6 15 16 9.5"/></svg></span>
+            <div><strong>Certificado</strong><span>Según cada formación</span></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M8.5 10.5 11 13l4.5-4.5"/></svg></span>
+            <div><strong>Acceso digital</strong><span>Preparado para área privada</span></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v4h4M9 12h6M9 16h6M9 8h2"/></svg></span>
+            <div><strong>Materiales</strong><span>PDFs y recursos de apoyo</span></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/></svg></span>
+            <div><strong>Grabaciones</strong><span>Cuando la formación las incluya</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cursos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">Catálogo</div><h2 class="section-title">10 cursos y formaciones</h2></div>
+          <p>Explorá las diez propuestas de formación disponibles. Cada curso abre su propia ficha con información específica, contenidos, materiales e inscripción.</p>
+        </div>
+
+        <div class="toolbar reveal">
+          <div class="filters" aria-label="Filtros">
+            <button class="filter active" data-filter="all">Todos</button>
+            <button class="filter" data-filter="clinica">Clínica y trauma</button>
+            <button class="filter" data-filter="forense">Forense</button>
+            <button class="filter" data-filter="evaluacion">Evaluación</button>
+            <button class="filter" data-filter="neuro">Neuropsicología</button>
+            <button class="filter" data-filter="victimologia">Victimología</button>
+          </div>
+          <label class="catalog-search">
+            <span>⌕</span>
+            <input id="catalogSearch" type="search" placeholder="Buscar curso o tema" />
+          </label>
+        </div>
+
+        <div class="course-grid" id="courseGrid">
+          <article class="course-card reveal" data-category="clinica" data-search="conductas sexuales abusivas entre niños y adolescentes infancia y adolescencia">
+            <div class="cover">
+              <img src="assets/conductas-sexuales-abusivas.webp" alt="Conductas sexuales abusivas entre niños y adolescentes" loading="lazy">
+              <span class="badge">Infancia y adolescencia</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>Conductas sexuales abusivas entre niños y adolescentes</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Formación centrada en la comprensión y el abordaje profesional de conductas sexuales abusivas en población infantojuvenil.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=conductas-sexuales-abusivas-ninos-adolescentes" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="forense" data-search="curso entrevista forense presuntos agresores sexuales psicología forense">
+            <div class="cover">
+              <img src="assets/entrevista-forense-agresores.webp" alt="Curso Entrevista Forense Presuntos Agresores Sexuales" loading="lazy">
+              <span class="badge">Psicología forense</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>Curso Entrevista Forense Presuntos Agresores Sexuales</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Curso orientado al trabajo de entrevista forense en contextos de evaluación de presuntos agresores sexuales.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=entrevista-forense-presuntos-agresores-sexuales" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="forense evaluacion" data-search="entrevista forense y análisis del testimonio psicología forense">
+            <div class="cover">
+              <img src="assets/entrevista-forense-testimonio.webp" alt="Entrevista Forense y Análisis del Testimonio" loading="lazy">
+              <span class="badge">Psicología forense</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>Entrevista Forense y Análisis del Testimonio</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Formación sobre entrevista forense y criterios de análisis del testimonio en contextos de evaluación profesional.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=entrevista-forense-analisis-testimonio" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="forense evaluacion victimologia" data-search="evaluación forense y victimológica de la parentalidad y condiciones parentales forense · familia">
+            <div class="cover">
+              <img src="assets/parentalidad-victimologica.webp" alt="Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales" loading="lazy">
+              <span class="badge">Forense · Familia</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Propuesta formativa enfocada en la evaluación forense y victimológica vinculada a parentalidad y condiciones parentales.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=evaluacion-forense-victimologica-parentalidad" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="neuro evaluacion forense" data-search="introducción al abordaje neuropsicológico forense en la evaluación pericial neuropsicología forense">
+            <div class="cover">
+              <img src="assets/neuropsicologia-forense.webp" alt="Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial" loading="lazy">
+              <span class="badge">Neuropsicología forense</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Introducción al cruce entre neuropsicología, psicología forense y evaluación pericial.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=abordaje-neuropsicologico-forense-evaluacion-pericial" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="masterclass forense evaluacion" data-search="master class - pericia psicológica forense masterclass · forense">
+            <div class="cover">
+              <img src="assets/pericia-psicologica-forense.webp" alt="MASTER CLASS - PERICIA PSICOLÓGICA FORENSE" loading="lazy">
+              <span class="badge">Masterclass · Forense</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>MASTER CLASS - PERICIA PSICOLÓGICA FORENSE</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Masterclass dedicada a la pericia psicológica forense y a los criterios profesionales implicados en su elaboración.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=pericia-psicologica-forense" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="masterclass evaluacion forense" data-search="masterclass sobre evaluación psicológica para porte y tenencia de armas masterclass · evaluación">
+            <div class="cover">
+              <img src="assets/porte-tenencia-armas.webp" alt="Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas" loading="lazy">
+              <span class="badge">Masterclass · Evaluación</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Formación sobre evaluación psicológica aplicada a contextos de porte y tenencia de armas.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=evaluacion-psicologica-porte-tenencia-armas" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="clinica trauma" data-search="trauma y disociacion – intervención desde el modelo de apego clínica · trauma y apego">
+            <div class="cover">
+              <img src="assets/trauma-disociacion-apego.webp" alt="TRAUMA Y DISOCIACION – INTERVENCIÓN DESDE EL MODELO DE APEGO" loading="lazy">
+              <span class="badge">Clínica · Trauma y apego</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>TRAUMA Y DISOCIACION – INTERVENCIÓN DESDE EL MODELO DE APEGO</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Curso centrado en trauma, disociación e intervención clínica desde el modelo de apego.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=trauma-disociacion-modelo-apego" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="clinica trauma" data-search="trauma y juego clínica · trauma">
+            <div class="cover">
+              <img src="assets/trauma-juego.webp" alt="TRAUMA Y JUEGO" loading="lazy">
+              <span class="badge">Clínica · Trauma</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>TRAUMA Y JUEGO</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Formación que vincula trauma y juego como ejes de comprensión e intervención en la práctica clínica.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=trauma-y-juego" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card reveal" data-category="victimologia forense" data-search="victimología, un enfoque centrado en la subjetividad de la víctima victimología">
+            <div class="cover">
+              <img src="assets/victimologia-subjetividad.webp" alt="Victimología, un enfoque centrado en la subjetividad de la víctima" loading="lazy">
+              <span class="badge">Victimología</span>
+            </div>
+            <div class="card-body">
+              <div class="type">Formación profesional</div>
+              <h3>Victimología, un enfoque centrado en la subjetividad de la víctima</h3>
+              <div class="teacher">Lic. Mauricio Berón</div>
+              <p class="desc">Propuesta centrada en victimología y en la comprensión de la subjetividad de la víctima.</p>
+              <div class="card-footer">
+                <span class="course-mode price-tag">USD 59</span>
+                <a class="course-cta" href="curso.html?slug=victimologia-subjetividad-victima" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-band">
+      <div class="wrap feature-layout">
+        <div class="feature-stage reveal">
+        </div>
+        <div class="feature-copy reveal">
+          <div class="kicker">Una plataforma de formación propia</div>
+          <h2>Todo el contenido profesional en un único lugar.</h2>
+          <p>Un espacio pensado para profesionales y estudiantes que buscan formación rigurosa en psicología clínica, evaluación y práctica jurídico-forense, con contenidos aplicados y acceso organizado.</p>
+          <div class="feature-list">
+            <div><strong>Cursos online</strong>Formaciones en vivo y contenidos digitales organizados por tema.</div>
+            <div><strong>Docente experto</strong>Más de 22 años de experiencia clínica, pericial y profesional.</div>
+            <div><strong>Acceso a materiales</strong>Presentaciones, PDFs, recursos de apoyo y grabaciones cuando correspondan.</div>
+            <div><strong>Contenido en expansión</strong>Nuevas masterclasses, cursos, talleres y supervisiones.</div>
+          </div>
+          <a class="btn btn-dark" href="#cursos">Ver todo el catálogo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">Experiencia del alumno</div><h2 class="section-title">De la elección al acceso.</h2></div>
+          <p>Un recorrido simple: elegir una formación, conocer todos los detalles, realizar la inscripción y recibir el acceso al contenido correspondiente.</p>
+        </div>
+        <div class="how-grid reveal">
+          <div class="how-item"><span class="how-n">01</span><h4>Explora</h4><p>El alumno navega por los cursos y filtra según el tema que le interesa.</p></div>
+          <div class="how-item"><span class="how-n">02</span><h4>Conoce el programa</h4><p>Entra a la ficha detallada del curso para revisar modalidad, fecha, duración, valor y todo lo que incluye.</p></div>
+          <div class="how-item"><span class="how-n">03</span><h4>Compra</h4><p>Cada formación dispone de su botón de inscripción, preparado para enlazarse con su checkout de pago.</p></div>
+          <div class="how-item"><span class="how-n">04</span><h4>Accede</h4><p>Tras confirmar la compra, el alumno recibe las indicaciones de acceso a los videos, PDFs, documentos y demás materiales incluidos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="acceso">
+      <div class="wrap faq-wrap">
+        <div class="faq-intro reveal">
+          <div class="kicker">Preguntas frecuentes</div>
+          <h2>Información antes de inscribirte.</h2>
+          <p>Toda la información importante de cada formación se presenta antes de la inscripción: modalidad, materiales, certificado, valor y acceso.</p>
+        </div>
+        <div class="reveal">
+          <details open><summary>¿Cómo compro una formación?</summary><p>Desde la ficha de cada curso. Allí se encuentra el botón de inscripción y pago correspondiente a esa formación.</p></details>
+          <details><summary>¿Cómo recibo el acceso?</summary><p>Después de confirmar la inscripción, el alumno recibe las indicaciones necesarias para acceder al contenido de la formación adquirida.</p></details>
+          <details><summary>¿Todos los cursos incluyen certificado?</summary><p>No necesariamente. Cada formación informará de manera específica su modalidad, materiales, certificado y acceso a grabaciones.</p></details>
+          <details><summary>¿Puedo consultar antes de comprar?</summary><p>Sí. Los accesos por WhatsApp se mantienen disponibles para resolver dudas sobre contenidos, modalidad e inscripción.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <div><h2>Elegí una formación y seguí profundizando tu práctica profesional.</h2><p>Cursos y masterclasses con una propuesta clara, sobria y orientada a la práctica.</p></div>
+          <a class="btn" href="#cursos">Explorar cursos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="https://www.psicologomauricioberon.com/"><span class="brand-mark">MB</span><span class="brand-copy"><strong>Lic. Mauricio Berón</strong><span>Formación profesional</span></span></a>
+          <p>Psicología clínica, psicoterapia, evaluación psicológica y práctica jurídico-forense integradas en propuestas de formación profesional.</p>
+        </div>
+        <div class="foot-col"><strong>Formación</strong><a href="#cursos">Todos los cursos</a><a href="#cursos">Masterclasses</a><a href="#como-funciona">Cómo funciona</a><a href="#acceso">Preguntas frecuentes</a></div>
+        <div class="foot-col"><strong>Contacto</strong><a href="https://www.psicologomauricioberon.com/">Sitio profesional</a><a href="https://wa.me/59899462504">WhatsApp</a><a href="mailto:mauricioberon@yahoo.com">mauricioberon@yahoo.com</a></div>
+      </div>
+      <div class="copyright"><span>© 2026 Mauricio Berón</span><span>Psicología clínica · Jurídica y forense · Formación profesional</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const cards=[...document.querySelectorAll('.course-card')];
+    const filters=[...document.querySelectorAll('.filter')];
+    const searchInputs=[document.getElementById('catalogSearch')].filter(Boolean);
+    let currentFilter='all';
+    let currentSearch='';
+
+    function normalize(v){return (v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+    function applyFilters(){
+      cards.forEach(card=>{
+        const cats=card.dataset.category||'';
+        const text=normalize(card.dataset.search||card.innerText);
+        const byFilter=currentFilter==='all'||cats.includes(currentFilter);
+        const bySearch=!currentSearch||text.includes(normalize(currentSearch));
+        card.classList.toggle('hidden',!(byFilter&&bySearch));
+      });
+    }
+    filters.forEach(btn=>btn.addEventListener('click',()=>{
+      filters.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter=btn.dataset.filter;
+      applyFilters();
+    }));
+    searchInputs.forEach(input=>input.addEventListener('input',e=>{
+      currentSearch=e.target.value;
+      searchInputs.forEach(other=>{if(other!==e.target) other.value=currentSearch});
+      applyFilters();
+    }));
+    document.querySelectorAll('[data-nav-filter]').forEach(link=>link.addEventListener('click',()=>{
+      const value=link.dataset.navFilter;
+      const target=filters.find(b=>b.dataset.filter===value);
+      if(target) target.click();
+    }));
+
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}})
+    },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
