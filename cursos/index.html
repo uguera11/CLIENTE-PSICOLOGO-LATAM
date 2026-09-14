@@ -108,6 +108,49 @@
     .nav-contact:hover{background:#263239;transform:translateY(-1px)}
     .head-actions{display:none}
 
+
+    .student-access-bar{
+      background:#17131d;
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .student-access-inner{
+      min-height:54px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .student-access-copy{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      color:#d9d2df;
+    }
+    .student-access-copy strong{
+      color:#fff;
+      font-weight:800;
+    }
+    .student-login-btn{
+      min-height:36px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 16px;
+      border-radius:8px;
+      background:#fff;
+      color:#5d4b72;
+      font-size:11px;
+      font-weight:850;
+      white-space:nowrap;
+      transition:.2s ease;
+    }
+    .student-login-btn:hover{
+      background:#f3eef7;
+      transform:translateY(-1px);
+    }
+
     .hero{
       background:#f8f6fb;
       padding:78px 0 46px;
@@ -393,6 +436,11 @@
 
     @media(max-width:1060px){
       .head-main{grid-template-columns:auto 1fr}.main-nav{display:none}.head-actions{display:none}
+
+      .student-access-inner{min-height:auto;padding:11px 0;align-items:center}
+      .student-access-copy{font-size:10px;line-height:1.35}
+      .student-login-btn{min-height:38px;padding:0 12px;font-size:10px}
+
       .hero-grid{grid-template-columns:1fr .9fr;gap:38px}
       .course-grid{grid-template-columns:repeat(2,1fr)}
       .feature-layout{grid-template-columns:1fr 1fr;gap:34px}
@@ -461,6 +509,16 @@
     </div>
   </header>
 
+  <div class="student-access-bar">
+    <div class="wrap student-access-inner">
+      <div class="student-access-copy">
+        <strong>¿Ya eres alumno?</strong>
+        <span>Ingresa a tu cuenta para continuar tus cursos.</span>
+      </div>
+      <a class="student-login-btn" href="/cursos/login/">Ingresar a mi cuenta →</a>
+    </div>
+  </div>
+
   <main>
     <section class="hero">
       <div class="wrap">
@@ -473,7 +531,7 @@
             <p>Explora cursos y masterclasses en psicología clínica, jurídica y forense, pensados para llevar conceptos rigurosos a la práctica profesional.</p>
             <div class="hero-actions">
               <a class="btn btn-dark" href="#cursos">Explorar cursos <span>↓</span></a>
-              <a class="btn btn-light" href="/cursos/login/">¿Ya eres alumno? Ingresar</a>
+              <a class="btn btn-light" href="/cursos/login/">Área de alumnos · Ingresar</a>
               <a class="btn btn-light" href="#como-funciona">Cómo funciona</a>
             </div>
             <div class="hero-categories" aria-label="Áreas de formación">
