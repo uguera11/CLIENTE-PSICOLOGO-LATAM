@@ -11,35 +11,63 @@
 <style>
 :root{--ink:#171318;--muted:#716977;--line:#e8e1ef;--soft:#f8f6fb;--violet:#75618f;--violet2:#8b78a4;--dark:#4f4161;--max:1240px;--shadow:0 18px 55px rgba(70,52,91,.12)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Manrope,Arial,sans-serif;color:var(--ink);background:#fff;border-top:5px solid var(--violet)}a{color:inherit;text-decoration:none}img{max-width:100%}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-.header{position:sticky;top:0;z-index:50;background:rgba(250,250,248,.97);backdrop-filter:blur(14px);border-bottom:1px solid #e9e9e5;box-shadow:0 4px 22px rgba(23,26,24,.03)}.head{min-height:82px;display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center}.brand{display:flex;align-items:center;gap:13px}.mark{width:40px;height:40px;border:1px solid #202723;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700}.brand strong{display:block;font-size:13px}.brand small{display:block;margin-top:4px;font-size:8.5px;text-transform:uppercase;letter-spacing:.12em;color:#8a918c}.nav{display:flex;gap:28px;justify-content:flex-end;font-size:11px}.nav a{padding:30px 0}.contact{padding:14px 22px!important;background:#111a20;color:#fff;border-radius:3px;font-weight:800}
+.header{position:sticky;top:0;z-index:50;background:rgba(250,250,248,.97);backdrop-filter:blur(14px);border-bottom:1px solid #e9e9e5;box-shadow:0 4px 22px rgba(23,26,24,.025)}.head-main{min-height:82px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:42px}.brand{display:flex;align-items:center;gap:13px;min-width:max-content}.brand-mark{width:40px;height:40px;border:1px solid #202723;background:transparent;color:#202723;display:grid;place-items:center;font-family:"Cormorant Garamond",Georgia,serif;font-size:17px;font-weight:600;letter-spacing:-.03em}.brand-copy strong{display:block;font-family:Manrope,sans-serif;font-weight:700;font-size:13px;line-height:1.12;letter-spacing:-.015em}.brand-copy span{display:block;margin-top:5px;color:#8a918c;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase}.main-nav{justify-self:end;display:flex;align-items:center;gap:31px;font-size:11px;font-weight:500;color:#202522}.main-nav a{position:relative;padding:31px 0 29px;transition:color .2s ease}.main-nav a:not(.nav-contact):after{content:"";position:absolute;left:0;right:100%;bottom:22px;height:1px;background:#202522;transition:.25s ease}.main-nav a:hover:after,.main-nav a.active:after{right:0}.main-nav a.active{font-weight:700}.nav-contact{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px!important;border-radius:2px;background:#111a20;color:#fff!important;font-weight:800!important;letter-spacing:.01em;line-height:1;white-space:nowrap;transition:transform .2s ease,background .2s ease!important}.nav-contact:hover{background:#263239;transform:translateY(-1px)}
 .breadcrumb{padding:28px 0 0;color:#8b78a4;font-size:11px;font-weight:800}.hero{padding:28px 0 68px;background:linear-gradient(180deg,#fff 0%,#fbf9fd 100%)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:42px;align-items:start}.content{min-width:0}.eyebrow{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);margin-bottom:12px}h1{font-size:clamp(38px,4.4vw,62px);line-height:1.03;letter-spacing:-.055em;margin:0 0 14px;font-weight:800}.lead{font-size:17px;line-height:1.65;color:#675e6d;max-width:830px;margin:0 0 22px}.teacherline{font-size:12px;color:#827889;margin-bottom:22px}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}.meta span{background:#f1ecf6;border:1px solid #e4daed;color:#635370;border-radius:999px;padding:9px 11px;font-size:10px;font-weight:800}.cover{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);background:#ece6f2;aspect-ratio:1.66/1}.cover img{width:100%;height:100%;object-fit:cover;display:block}
 .buy{position:sticky;top:110px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:var(--shadow);padding:25px}.buy small{display:block;color:var(--violet);text-transform:uppercase;font-size:9px;letter-spacing:.12em;font-weight:900;margin-bottom:8px}.buy h2{font-size:23px;line-height:1.1;letter-spacing:-.04em;margin:0 0 8px}.buy p{font-size:12px;line-height:1.55;color:#766d7c;margin:0 0 18px}.price-label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#9a91a0;font-weight:800}.price{font-size:30px;font-weight:800;letter-spacing:-.04em;margin:5px 0 16px}.note{background:#f6f2f9;border:1px solid #e8deef;border-radius:12px;padding:12px 13px;color:#675b70;font-size:11px;line-height:1.55;margin-bottom:14px}.buybtn,.ask{min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:12px;font-weight:900;margin-top:9px}.buybtn{background:var(--violet);color:#fff}.buybtn:hover{background:#624f78}.ask{border:1px solid #d9cde4;color:#5c4b6b}.transfer-note{margin-top:11px;font-size:10.5px;line-height:1.55;color:#766d7c;background:#fbfafc;border-radius:10px;padding:10px 11px;border:1px solid #eee7f2}.includes{margin-top:19px;padding-top:17px;border-top:1px solid var(--line)}.includes strong{font-size:12px}.includes div{display:flex;gap:9px;align-items:flex-start;font-size:11px;color:#655d69;margin-top:10px}.check{width:19px;height:19px;border-radius:50%;background:#efe8f4;color:var(--violet);display:grid;place-items:center;font-weight:900;flex:none}
 .section{padding:62px 0;border-bottom:1px solid #eee9f1}.section h2{font-size:34px;letter-spacing:-.045em;margin:0 0 18px}.section p{font-size:14px;line-height:1.8;color:#6f6675}.learn{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.learn div{border:1px solid var(--line);border-radius:15px;padding:21px;background:#fff;min-height:150px}.learn b{display:block;color:var(--violet);font-size:11px;margin-bottom:8px}.learn span{font-size:12px;line-height:1.58;color:#625969}.program{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px}.program-card{border:1px solid var(--line);border-radius:18px;overflow:hidden}.program-row{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:15px}.program-row:last-child{border-bottom:0}.num{color:#9d8dae;font-weight:900;font-size:11px}.program-row strong{font-size:13px;display:block;margin-bottom:5px}.program-row span{font-size:11px;color:#7a7180;line-height:1.55}
 .teacher{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:center;background:#f8f6fb;border:1px solid #e9e1f0;border-radius:20px;padding:24px}.teacher img{width:180px;height:180px;object-fit:cover;object-position:center 18%;border-radius:16px}.teacher h3{font-size:26px;margin:0 0 8px}.teacher p{margin:0}details{border-top:1px solid var(--line);padding:17px 0}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;font-weight:800;font-size:13px}details p{font-size:12px!important;margin:10px 0 0!important}footer{padding:35px 0;background:#f8f6fb;color:#8a8190;font-size:10px}
 .notfound{padding:100px 0;text-align:center}.notfound h1{font-size:40px}.notfound a{display:inline-flex;margin-top:18px;background:var(--violet);color:#fff;padding:13px 18px;border-radius:10px;font-weight:800}
-@media(max-width:920px){.layout{grid-template-columns:1fr}.buy{position:relative;top:0}.nav{display:none}.head{grid-template-columns:auto 1fr}.program{grid-template-columns:1fr}}
+
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 4px}
+.info-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px 17px}
+.info-card small{display:block;color:#978d9e;text-transform:uppercase;letter-spacing:.1em;font-size:8px;font-weight:900;margin-bottom:6px}
+.info-card strong{display:block;font-size:12px;line-height:1.45;color:#2f2834}
+.audience-box{background:#f8f6fb;border:1px solid #e8e1ef;border-radius:18px;padding:24px 26px}
+.audience-box p{margin:0!important}
+.access-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.access-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.access-card strong{display:block;font-size:12px;margin-bottom:5px}
+.access-card span{display:block;color:#766d7c;font-size:11px;line-height:1.55}
+.hotmart-note{font-size:10px;line-height:1.5;color:#857b8b;text-align:center;margin:8px 0 0}
+@media(max-width:680px){.info-grid{grid-template-columns:1fr}.access-grid{grid-template-columns:1fr}}
+
+@media(max-width:920px){.layout{grid-template-columns:1fr}.buy{position:relative;top:0}.main-nav{display:none}.head-main{grid-template-columns:auto 1fr}.program{grid-template-columns:1fr}}
 @media(max-width:680px){.wrap{width:min(var(--max),calc(100% - 24px))}.hero{padding-bottom:48px}h1{font-size:38px}.learn{grid-template-columns:1fr}.teacher{grid-template-columns:1fr}.teacher img{width:100%;height:280px}.cover{aspect-ratio:1.35/1}}
 </style>
 </head>
 <body>
-<header class="header"><div class="wrap head">
-<a class="brand" href="index.html"><span class="mark">MB</span><span><strong>Lic. Mauricio Berón</strong><small>Psicología clínica · jurídica · forense</small></span></a>
-<div></div><nav class="nav"><a href="https://www.psicologomauricioberon.com/#perfil">Perfil</a><a href="https://www.psicologomauricioberon.com/#areas">Áreas</a><a href="index.html#cursos">Cursos</a><a href="https://www.psicologomauricioberon.com/#consultorio">Consultorio</a><a class="contact" href="https://wa.me/59899462504">Contacto</a></nav>
-</div></header>
+<header class="header">
+  <div class="wrap head-main">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">MB</span>
+      <span class="brand-copy"><strong>Lic. Mauricio Berón</strong><span>Psicología clínica · jurídica · forense</span></span>
+    </a>
+    <div></div>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="https://www.psicologomauricioberon.com/#perfil">Perfil</a>
+      <a href="https://www.psicologomauricioberon.com/#areas">Áreas</a>
+      <a class="active" href="index.html#cursos">Cursos</a>
+      <a href="https://www.psicologomauricioberon.com/#consultorio">Consultorio</a>
+      <a class="nav-contact" href="https://www.psicologomauricioberon.com/#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
 <main id="app"></main>
 <footer><div class="wrap">© 2026 Mauricio Berón · Psicología clínica · Jurídica y forense · Formación profesional</div></footer>
 <script>
-const courses=[{"slug": "conductas-sexuales-abusivas-ninos-adolescentes", "title": "Conductas sexuales abusivas entre niños y adolescentes", "category": "Infancia y adolescencia", "filter": "clinica", "image": "conductas-sexuales-abusivas.webp", "desc": "Formación centrada en la comprensión y el abordaje profesional de conductas sexuales abusivas en población infantojuvenil.", "focus": ["Marco conceptual para comprender el tema desde la práctica psicológica.", "Criterios de observación, evaluación e intervención profesional.", "Aplicación clínica y análisis de situaciones vinculadas al contenido del curso."]}, {"slug": "entrevista-forense-presuntos-agresores-sexuales", "title": "Curso Entrevista Forense Presuntos Agresores Sexuales", "category": "Psicología forense", "filter": "forense", "image": "entrevista-forense-agresores.webp", "desc": "Curso orientado al trabajo de entrevista forense en contextos de evaluación de presuntos agresores sexuales.", "focus": ["Marco conceptual y técnico aplicado al contexto jurídico-forense.", "Criterios profesionales de evaluación, análisis y elaboración de conclusiones.", "Aplicación práctica a situaciones propias del trabajo pericial y forense."]}, {"slug": "entrevista-forense-analisis-testimonio", "title": "Entrevista Forense y Análisis del Testimonio", "category": "Psicología forense", "filter": "forense evaluacion", "image": "entrevista-forense-testimonio.webp", "desc": "Formación sobre entrevista forense y criterios de análisis del testimonio en contextos de evaluación profesional.", "focus": ["Marco conceptual y técnico aplicado al contexto jurídico-forense.", "Criterios profesionales de evaluación, análisis y elaboración de conclusiones.", "Aplicación práctica a situaciones propias del trabajo pericial y forense."]}, {"slug": "evaluacion-forense-victimologica-parentalidad", "title": "Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales", "category": "Forense · Familia", "filter": "forense evaluacion victimologia", "image": "parentalidad-victimologica.webp", "desc": "Propuesta formativa enfocada en la evaluación forense y victimológica vinculada a parentalidad y condiciones parentales.", "focus": ["Marco conceptual y técnico aplicado al contexto jurídico-forense.", "Criterios profesionales de evaluación, análisis y elaboración de conclusiones.", "Aplicación práctica a situaciones propias del trabajo pericial y forense."]}, {"slug": "abordaje-neuropsicologico-forense-evaluacion-pericial", "title": "Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial", "category": "Neuropsicología forense", "filter": "neuro evaluacion forense", "image": "neuropsicologia-forense.webp", "desc": "Introducción al cruce entre neuropsicología, psicología forense y evaluación pericial.", "focus": ["Introducción a conceptos neuropsicológicos relevantes para el ámbito forense.", "Criterios de integración dentro de procesos de evaluación pericial.", "Lectura profesional de información y resultados en contexto."]}, {"slug": "pericia-psicologica-forense", "title": "MASTER CLASS - PERICIA PSICOLÓGICA FORENSE", "category": "Masterclass · Forense", "filter": "masterclass forense evaluacion", "image": "pericia-psicologica-forense.webp", "desc": "Masterclass dedicada a la pericia psicológica forense y a los criterios profesionales implicados en su elaboración.", "focus": ["Marco conceptual y técnico aplicado al contexto jurídico-forense.", "Criterios profesionales de evaluación, análisis y elaboración de conclusiones.", "Aplicación práctica a situaciones propias del trabajo pericial y forense."]}, {"slug": "evaluacion-psicologica-porte-tenencia-armas", "title": "Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas", "category": "Masterclass · Evaluación", "filter": "masterclass evaluacion forense", "image": "porte-tenencia-armas.webp", "desc": "Formación sobre evaluación psicológica aplicada a contextos de porte y tenencia de armas.", "focus": ["Marco conceptual y técnico aplicado al contexto jurídico-forense.", "Criterios profesionales de evaluación, análisis y elaboración de conclusiones.", "Aplicación práctica a situaciones propias del trabajo pericial y forense."]}, {"slug": "trauma-disociacion-modelo-apego", "title": "TRAUMA Y DISOCIACION – INTERVENCIÓN DESDE EL MODELO DE APEGO", "category": "Clínica · Trauma y apego", "filter": "clinica trauma", "image": "trauma-disociacion-apego.webp", "desc": "Curso centrado en trauma, disociación e intervención clínica desde el modelo de apego.", "focus": ["Marco conceptual para comprender el tema desde la práctica psicológica.", "Criterios de observación, evaluación e intervención profesional.", "Aplicación clínica y análisis de situaciones vinculadas al contenido del curso."]}, {"slug": "trauma-y-juego", "title": "TRAUMA Y JUEGO", "category": "Clínica · Trauma", "filter": "clinica trauma", "image": "trauma-juego.webp", "desc": "Formación que vincula trauma y juego como ejes de comprensión e intervención en la práctica clínica.", "focus": ["Marco conceptual para comprender el tema desde la práctica psicológica.", "Criterios de observación, evaluación e intervención profesional.", "Aplicación clínica y análisis de situaciones vinculadas al contenido del curso."]}, {"slug": "victimologia-subjetividad-victima", "title": "Victimología, un enfoque centrado en la subjetividad de la víctima", "category": "Victimología", "filter": "victimologia forense", "image": "victimologia-subjetividad.webp", "desc": "Propuesta centrada en victimología y en la comprensión de la subjetividad de la víctima.", "focus": ["Marco conceptual y técnico aplicado al contexto jurídico-forense.", "Criterios profesionales de evaluación, análisis y elaboración de conclusiones.", "Aplicación práctica a situaciones propias del trabajo pericial y forense."]}];
+const courses=[{"slug":"conductas-sexuales-abusivas-ninos-adolescentes","title":"Conductas sexuales abusivas entre niños y adolescentes","category":"Infancia y adolescencia","image":"conductas-sexuales-abusivas.webp","desc":"Formación centrada en la comprensión y el abordaje profesional de conductas sexuales abusivas en población infantojuvenil.","audience":"Profesionales de psicología, salud mental y áreas afines que trabajan con niñas, niños, adolescentes y familias.","focus":["Conceptos centrales para comprender el tema desde la práctica psicológica.","Criterios de observación, evaluación y abordaje profesional.","Aplicación clínica y análisis de situaciones vinculadas al contenido del curso."]},{"slug":"entrevista-forense-presuntos-agresores-sexuales","title":"Curso Entrevista Forense Presuntos Agresores Sexuales","category":"Psicología forense","image":"entrevista-forense-agresores.webp","desc":"Curso orientado al trabajo de entrevista forense en contextos de evaluación de presuntos agresores sexuales.","audience":"Psicólogos, peritos, profesionales del ámbito jurídico-forense y estudiantes avanzados interesados en evaluación especializada.","focus":["Fundamentos de la entrevista forense aplicada a presuntos agresores sexuales.","Criterios técnicos para organizar la entrevista y analizar la información obtenida.","Integración profesional de hallazgos dentro del contexto pericial."]},{"slug":"entrevista-forense-analisis-testimonio","title":"Entrevista Forense y Análisis del Testimonio","category":"Psicología forense","image":"entrevista-forense-testimonio.webp","desc":"Formación sobre entrevista forense y criterios de análisis del testimonio en contextos de evaluación profesional.","audience":"Psicólogos, peritos judiciales, profesionales forenses y estudiantes avanzados que trabajan con entrevistas y análisis de testimonios.","focus":["Principios de entrevista forense y obtención de información.","Criterios de análisis del testimonio en contextos profesionales.","Lectura técnica, integración y fundamentación de conclusiones."]},{"slug":"evaluacion-forense-victimologica-parentalidad","title":"Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales","category":"Forense · Familia","image":"parentalidad-victimologica.webp","desc":"Propuesta formativa enfocada en la evaluación forense y victimológica vinculada a parentalidad y condiciones parentales.","audience":"Profesionales de psicología, peritos y técnicos que intervienen en contextos familiares, judiciales y de evaluación de parentalidad.","focus":["Criterios para evaluar parentalidad y condiciones parentales.","Perspectiva victimológica aplicada a contextos familiares y judiciales.","Integración de hallazgos y elaboración técnica en evaluación forense."]},{"slug":"abordaje-neuropsicologico-forense-evaluacion-pericial","title":"Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial","category":"Neuropsicología forense","image":"neuropsicologia-forense.webp","desc":"Introducción al cruce entre neuropsicología, psicología forense y evaluación pericial.","audience":"Psicólogos, peritos y profesionales interesados en incorporar criterios neuropsicológicos al trabajo de evaluación forense.","focus":["Conceptos neuropsicológicos relevantes para el ámbito forense.","Criterios de integración dentro de procesos de evaluación pericial.","Lectura profesional de resultados e información neuropsicológica en contexto."]},{"slug":"pericia-psicologica-forense","title":"MASTER CLASS - PERICIA PSICOLÓGICA FORENSE","category":"Masterclass · Forense","image":"pericia-psicologica-forense.webp","desc":"Masterclass dedicada a la pericia psicológica forense y a los criterios profesionales implicados en su elaboración.","audience":"Psicólogos, peritos judiciales y profesionales que desean profundizar en evaluación, razonamiento y elaboración pericial.","focus":["Estructura y lógica de la pericia psicológica forense.","Criterios de evaluación, análisis y fundamentación técnica.","Organización de hallazgos y comunicación profesional de conclusiones."]},{"slug":"evaluacion-psicologica-porte-tenencia-armas","title":"Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas","category":"Masterclass · Evaluación","image":"porte-tenencia-armas.webp","desc":"Formación sobre evaluación psicológica aplicada a contextos de porte y tenencia de armas.","audience":"Psicólogos y profesionales de evaluación interesados en los criterios psicológicos aplicados a porte y tenencia de armas.","focus":["Variables psicológicas relevantes en este tipo de evaluación.","Criterios técnicos de análisis y toma de decisiones profesionales.","Integración y comunicación responsable de resultados."]},{"slug":"trauma-disociacion-modelo-apego","title":"TRAUMA Y DISOCIACION – INTERVENCIÓN DESDE EL MODELO DE APEGO","category":"Clínica · Trauma y apego","image":"trauma-disociacion-apego.webp","desc":"Curso centrado en trauma, disociación e intervención clínica desde el modelo de apego.","audience":"Psicólogos, psicoterapeutas y profesionales de salud mental que trabajan con trauma, disociación, vínculos y apego.","focus":["Comprensión del trauma y la disociación desde una perspectiva clínica.","Aportes del modelo de apego para la formulación e intervención.","Criterios aplicados al trabajo terapéutico con casos complejos."]},{"slug":"trauma-y-juego","title":"TRAUMA Y JUEGO","category":"Clínica · Trauma","image":"trauma-juego.webp","desc":"Formación que vincula trauma y juego como ejes de comprensión e intervención en la práctica clínica.","audience":"Psicólogos, psicoterapeutas y profesionales que trabajan clínicamente con infancia, trauma y recursos lúdicos.","focus":["El juego como vía de expresión y comprensión en situaciones de trauma.","Criterios clínicos de observación e intervención.","Aplicaciones y recursos para el trabajo terapéutico."]},{"slug":"victimologia-subjetividad-victima","title":"Victimología, un enfoque centrado en la subjetividad de la víctima","category":"Victimología","image":"victimologia-subjetividad.webp","desc":"Propuesta centrada en victimología y en la comprensión de la subjetividad de la víctima.","audience":"Psicólogos, profesionales forenses, jurídicos y de salud mental interesados en victimología y abordajes centrados en la víctima.","focus":["Fundamentos de victimología y comprensión de la experiencia subjetiva.","Impacto psicológico y lectura contextual de la victimización.","Criterios profesionales para evaluación, intervención y análisis."]}];
 const params=new URLSearchParams(location.search);
 const slug=params.get('slug');
 const c=courses.find(x=>x.slug===slug);
 const app=document.getElementById('app');
+
 if(!c){
   app.innerHTML=`<div class="wrap notfound"><div class="eyebrow">Formación profesional</div><h1>Curso no encontrado</h1><p>La formación solicitada no está disponible en este momento.</p><a href="index.html#cursos">Volver al catálogo</a></div>`;
 } else {
   document.title=c.title+' | Lic. Mauricio Berón';
   const wa='https://wa.me/59899462504?text='+encodeURIComponent('Hola Lic. Mauricio Berón, quiero inscribirme en el curso: '+c.title+' (USD 59). Quisiera recibir el enlace de pago por Hotmart o los datos para transferencia si corresponde.');
-  const focus=c.focus.map((x,i)=>`<div><b>0${i+1}</b><span>${x}</span></div>`).join('');
+  const program=c.focus.map((x,i)=>`<div class="program-row"><span class="num">0${i+1}</span><div><strong>${i===0?'Fundamentos y marco conceptual':i===1?'Desarrollo y criterios profesionales':'Aplicación e integración'}</strong><span>${x}</span></div></div>`).join('');
+
   app.innerHTML=`
   <div class="wrap breadcrumb"><a href="index.html#cursos">Cursos</a> &nbsp;›&nbsp; ${c.category}</div>
   <section class="hero"><div class="wrap layout">
@@ -47,37 +75,71 @@ if(!c){
       <div class="eyebrow">${c.category}</div>
       <h1>${c.title}</h1>
       <p class="lead">${c.desc}</p>
-      <div class="teacherline">Lic. Mauricio Berón · Formación profesional</div>
-      <div class="meta"><span>Formación profesional</span><span>Materiales complementarios</span><span>Inscripción</span></div>
+      <div class="teacherline">Lic. Mauricio Berón · Psicólogo clínico · Psicoterapeuta · Perito judicial y forense</div>
+
+      <div class="info-grid" aria-label="Información de la formación">
+        <div class="info-card"><small>Modalidad</small><strong>Online</strong></div>
+        <div class="info-card"><small>Duración</small><strong>A confirmar</strong></div>
+        <div class="info-card"><small>Acceso</small><strong>Duración a confirmar en Hotmart</strong></div>
+      </div>
+
       <div class="cover"><img src="assets/${c.image}" alt="${c.title}"></div>
-      <section class="section"><h2>Sobre esta formación</h2><p>${c.desc} En esta ficha encontrarás la información central de la propuesta y las condiciones de inscripción.</p></section>
-      <section class="section"><h2>Ejes de trabajo</h2><div class="learn">${focus}</div></section>
-      <section class="section program"><div><div class="eyebrow">Programa</div><h2>Contenido organizado para el alumno.</h2><p>El contenido se organiza en bloques claros para que el alumno pueda conocer el enfoque general de la formación antes de inscribirse.</p></div><div class="program-card">
-        <div class="program-row"><span class="num">01</span><div><strong>Marco conceptual</strong><span>Fundamentos y conceptos centrales vinculados al tema de la formación.</span></div></div>
-        <div class="program-row"><span class="num">02</span><div><strong>Desarrollo y análisis</strong><span>Análisis, criterios profesionales y desarrollo aplicado del contenido.</span></div></div>
-        <div class="program-row"><span class="num">03</span><div><strong>Aplicación profesional</strong><span>Integración de herramientas, conclusiones y recursos complementarios.</span></div></div>
-      </div></section>
-      <section class="section"><div class="teacher"><img src="assets/mauricio.webp" alt="Lic. Mauricio Berón"><div><div class="eyebrow">Docente</div><h3>Lic. Mauricio Berón</h3><p>Psicólogo clínico, psicoterapeuta, perito judicial y forense. Más de 22 años de trayectoria profesional.</p></div></div></section>
+
+      <section class="section">
+        <div class="eyebrow">Presentación</div>
+        <h2>Sobre esta formación</h2>
+        <p>${c.desc}</p>
+      </section>
+
+      <section class="section">
+        <div class="eyebrow">Perfil del alumno</div>
+        <h2>¿A quién está dirigida?</h2>
+        <div class="audience-box"><p>${c.audience}</p></div>
+      </section>
+
+      <section class="section program">
+        <div><div class="eyebrow">Programa</div><h2>Contenido de la formación</h2><p>El programa se presenta en bloques claros para que el alumno pueda conocer el enfoque general antes de realizar la compra.</p></div>
+        <div class="program-card">${program}</div>
+      </section>
+
+      <section class="section">
+        <div class="eyebrow">Incluido en la formación</div>
+        <h2>Materiales, certificado y acceso</h2>
+        <div class="access-grid">
+          <div class="access-card"><strong>Videos y clases</strong><span>Los contenidos audiovisuales se incorporarán cuando se carguen los materiales definitivos en Hotmart.</span></div>
+          <div class="access-card"><strong>PDFs y documentos</strong><span>Los archivos complementarios quedarán disponibles junto con la formación una vez cargados.</span></div>
+          <div class="access-card"><strong>Certificado</strong><span>La modalidad de emisión se indicará aquí cuando quede definida para esta formación.</span></div>
+          <div class="access-card"><strong>Tiempo de acceso</strong><span>La duración exacta se mostrará aquí al configurar el producto definitivo en Hotmart.</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="teacher"><img src="assets/mauricio.webp" alt="Lic. Mauricio Berón"><div><div class="eyebrow">Docente</div><h3>Lic. Mauricio Berón</h3><p>Psicólogo clínico, psicoterapeuta, perito judicial y forense. Más de 22 años de trayectoria profesional en práctica clínica, evaluación psicológica y trabajo jurídico-forense.</p></div></div>
+      </section>
+
       <section class="section"><h2>Preguntas frecuentes</h2>
-        <details open><summary>¿Dónde se realiza la inscripción?</summary><p>El pago online se realizará mediante el checkout seguro de Hotmart. Una vez que se carguen los enlaces definitivos de cada producto, el botón de compra llevará directamente a ese checkout.</p></details>
-        <details><summary>¿Dónde estarán los videos y materiales?</summary><p>Después de confirmar la compra, el alumno recibirá las instrucciones de acceso a los videos, PDFs, documentos y demás materiales incluidos en la formación.</p></details>
-        <details><summary>¿El curso incluye certificado?</summary><p>Cuando la formación incluya certificado, esa condición se indicará en la ficha del curso y en el acceso del alumno.</p></details>
+        <details open><summary>¿Cómo se realiza la compra?</summary><p>El pago online se realizará mediante el checkout seguro de Hotmart. Cuando se cargue el enlace definitivo de este producto, el botón “Comprar y acceder en Hotmart” llevará directamente al checkout.</p></details>
+        <details><summary>¿Puedo pagar por transferencia si vivo en Uruguay?</summary><p>Sí. Puede solicitar los datos por WhatsApp. El acceso se habilitará una vez confirmado el pago.</p></details>
+        <details><summary>¿Dónde estarán los videos, PDFs y otros materiales?</summary><p>Los contenidos estarán disponibles en el acceso del alumno una vez que los materiales definitivos hayan sido cargados en la plataforma.</p></details>
+        <details><summary>¿Incluye certificado?</summary><p>La información específica sobre certificado se mostrará en esta ficha antes de la compra cuando quede definida para la formación.</p></details>
       </section>
     </div>
+
     <aside class="buy">
-      <small>Ficha de inscripción</small>
+      <small>Inscripción</small>
       <h2>${c.title}</h2>
       <p>${c.category} · Lic. Mauricio Berón</p>
       <div class="price-label">Precio de la formación</div><div class="price">USD 59</div>
-      <div class="note"><strong>Pago seguro y acceso automático</strong><br>La inscripción se realiza mediante Hotmart, disponible para alumnos de Uruguay y del exterior.</div>
-      <a class="buybtn" href="${wa}" target="_blank" rel="noopener">Solicitar enlace de pago</a>
-      <a class="ask" href="${wa}" target="_blank" rel="noopener">Pagar por transferencia (Uruguay)</a>
+      <div class="note"><strong>Pago seguro y acceso mediante Hotmart</strong><br>Disponible para alumnos de Uruguay y del exterior.</div>
+      <a class="buybtn" href="${wa}" target="_blank" rel="noopener">Comprar y acceder en Hotmart</a>
+      <div class="hotmart-note">El checkout definitivo se conectará cuando se cargue el enlace de Hotmart.</div>
+      <a class="ask" href="${wa}" target="_blank" rel="noopener">Pago por transferencia en Uruguay — solicitar por WhatsApp</a>
       <div class="transfer-note">Si reside en Uruguay y prefiere pagar mediante transferencia bancaria, solicite los datos por WhatsApp. El acceso se habilitará una vez confirmado el pago.</div>
-      <div class="includes"><strong>La formación puede incluir:</strong>
-        <div><span class="check">✓</span><span>Videos y clases</span></div>
-        <div><span class="check">✓</span><span>PDFs y documentos</span></div>
-        <div><span class="check">✓</span><span>Material complementario</span></div>
-        <div><span class="check">✓</span><span>Certificado, cuando corresponda</span></div>
+      <div class="includes"><strong>Información del acceso:</strong>
+        <div><span class="check">✓</span><span>Modalidad online</span></div>
+        <div><span class="check">✓</span><span>Videos, PDFs y documentos al cargar los materiales</span></div>
+        <div><span class="check">✓</span><span>Certificado: condición a confirmar</span></div>
+        <div><span class="check">✓</span><span>Duración del acceso: a confirmar</span></div>
       </div>
     </aside>
   </div></section>`;
