@@ -1,3 +1,159 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accesos manuales | Cursos</title><meta name="robots" content="noindex,nofollow"><style>body{font-family:Arial,sans-serif;background:#f5f3f7;color:#211d25;margin:0;padding:30px}.box{max-width:620px;margin:auto;background:#fff;border:1px solid #ddd4e3;border-radius:18px;padding:26px}h1{font-size:24px}label{display:block;font-size:12px;font-weight:700;margin:14px 0 6px}input,select{width:100%;padding:12px;border:1px solid #d8cedf;border-radius:9px;box-sizing:border-box}button{margin-top:16px;padding:12px 14px;border:0;border-radius:9px;background:#17141b;color:#fff;font-weight:700;cursor:pointer}button.secondary{background:#fff;color:#17141b;border:1px solid #d8cedf;margin-left:6px}#msg{margin-top:14px;font-size:12px;line-height:1.5}</style></head><body><div class="box"><h1>Accesos manuales</h1><p>Para pagos por transferencia en Uruguay o pruebas. La clave administrativa queda guardada sólo en este navegador durante la sesión.</p><label>Clave administrativa</label><input id="key" type="password"><label>Nombre del alumno</label><input id="name"><label>Email</label><input id="email" type="email"><label>Curso</label><select id="course"><option value="conductas-sexuales-abusivas">Conductas Sexuales Abusivas entre Niños y Adolescentes</option><option value="entrevista-forense-presuntos-agresores-sexuales">Curso Entrevista Forense Presuntos Agresores Sexuales</option><option value="entrevista-forense-analisis-testimonio">Entrevista Forense y Análisis del Testimonio</option><option value="evaluacion-forense-victimologica-parentalidad">Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales</option><option value="abordaje-neuropsicologico-forense-evaluacion-pericial">Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial</option><option value="pericia-psicologica-forense">Master Class - Pericia Psicológica Forense</option><option value="evaluacion-psicologica-porte-tenencia-armas">Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas</option><option value="trauma-disociacion-modelo-apego">Trauma y Disociación – Intervención desde el Modelo de Apego</option><option value="trauma-y-juego">Trauma y Juego</option><option value="victimologia-subjetividad-victima">Victimología, un enfoque centrado en la subjetividad de la víctima</option></select><button id="grant">Habilitar acceso</button><button class="secondary" id="revoke">Quitar acceso</button><div id="msg"></div></div><script>
-async function act(active){const msg=document.getElementById('msg');msg.textContent='Procesando...';const r=await fetch('/api/manual-access',{method:'POST',headers:{'content-type':'application/json','x-admin-key':document.getElementById('key').value},body:JSON.stringify({email:document.getElementById('email').value.trim(),name:document.getElementById('name').value.trim(),courseId:document.getElementById('course').value,active})});const data=await r.json();msg.textContent=r.ok?(active?'Acceso habilitado. Si era un alumno nuevo, recibirá un email para crear la contraseña.':'Acceso retirado.'):'Error: '+(data.error||'No autorizado');}document.getElementById('grant').onclick=()=>act(true);document.getElementById('revoke').onclick=()=>act(false);
-</script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Accesos manuales | Cursos</title>
+<style>
+:root{
+  --bg:#f4f1f6;--card:#fff;--text:#201b24;--muted:#746d79;
+  --line:#ded5e3;--violet:#6d4e81;--violet2:#efe8f3;--dark:#17141b;
+  --ok:#2f6a4f;--danger:#9d3c46
+}
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:30px 16px}
+.box{max-width:760px;margin:auto;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 18px 55px rgba(48,35,55,.08)}
+h1{font-size:26px;margin:0 0 7px}
+.intro{color:var(--muted);font-size:13px;line-height:1.55;margin:0 0 22px}
+label.field{display:block;font-size:12px;font-weight:800;margin:15px 0 7px}
+input{width:100%;padding:13px;border:1px solid #d8cedf;border-radius:10px;outline:none;font-size:14px}
+input:focus{border-color:#8b6a9f;box-shadow:0 0 0 3px rgba(109,78,129,.10)}
+.course-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:20px 0 9px}
+.course-head strong{font-size:13px}
+.course-head span{font-size:11px;color:var(--muted)}
+.quick{display:flex;gap:7px;flex-wrap:wrap}
+.quick button{margin:0;background:#fff;color:var(--violet);border:1px solid #cfc1d7;padding:7px 9px;font-size:10px}
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.course{
+  display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);
+  border-radius:11px;padding:11px 12px;cursor:pointer;background:#fff;transition:.15s ease
+}
+.course:hover{border-color:#bcaac8;background:#fbf9fc}
+.course:has(input:checked){border-color:#8f70a2;background:var(--violet2)}
+.course input{width:17px;height:17px;margin:1px 0 0;accent-color:var(--violet);flex:0 0 auto}
+.course b{font-size:11px;line-height:1.35;font-weight:750}
+.counter{margin-top:10px;color:var(--muted);font-size:11px}
+.actions{display:flex;gap:8px;margin-top:19px;flex-wrap:wrap}
+button{padding:12px 15px;border:0;border-radius:9px;background:var(--dark);color:#fff;font-weight:800;cursor:pointer}
+button.secondary{background:#fff;color:var(--danger);border:1px solid #dec9cc}
+button:disabled{opacity:.5;cursor:not-allowed}
+#msg{margin-top:15px;padding:0;font-size:12px;line-height:1.55}
+#msg.ok{color:var(--ok)}
+#msg.err{color:var(--danger)}
+@media(max-width:650px){
+  body{padding:15px 10px}.box{padding:20px 15px;border-radius:15px}
+  .courses{grid-template-columns:1fr}.course-head{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>Accesos manuales</h1>
+  <p class="intro">Para pagos por transferencia, pruebas o accesos especiales. Puedes seleccionar uno o varios cursos para el mismo alumno.</p>
+
+  <label class="field">Clave administrativa</label>
+  <input id="key" type="password" autocomplete="current-password">
+
+  <label class="field">Nombre del alumno</label>
+  <input id="name" autocomplete="name">
+
+  <label class="field">Email</label>
+  <input id="email" type="email" autocomplete="email">
+
+  <div class="course-head">
+    <div>
+      <strong>Cursos a habilitar o retirar</strong><br>
+      <span>Marca exactamente los cursos que quieras modificar.</span>
+    </div>
+    <div class="quick">
+      <button type="button" id="all">Seleccionar todos</button>
+      <button type="button" id="none">Limpiar selección</button>
+    </div>
+  </div>
+
+  <div class="courses" id="courses">
+    <label class="course"><input type="checkbox" value="conductas-sexuales-abusivas"><b>Conductas Sexuales Abusivas entre Niños y Adolescentes</b></label>
+    <label class="course"><input type="checkbox" value="entrevista-forense-presuntos-agresores-sexuales"><b>Curso Entrevista Forense Presuntos Agresores Sexuales</b></label>
+    <label class="course"><input type="checkbox" value="entrevista-forense-analisis-testimonio"><b>Entrevista Forense y Análisis del Testimonio</b></label>
+    <label class="course"><input type="checkbox" value="evaluacion-forense-victimologica-parentalidad"><b>Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales</b></label>
+    <label class="course"><input type="checkbox" value="abordaje-neuropsicologico-forense-evaluacion-pericial"><b>Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial</b></label>
+    <label class="course"><input type="checkbox" value="pericia-psicologica-forense"><b>Master Class - Pericia Psicológica Forense</b></label>
+    <label class="course"><input type="checkbox" value="evaluacion-psicologica-porte-tenencia-armas"><b>Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas</b></label>
+    <label class="course"><input type="checkbox" value="trauma-disociacion-modelo-apego"><b>Trauma y Disociación – Intervención desde el Modelo de Apego</b></label>
+    <label class="course"><input type="checkbox" value="trauma-y-juego"><b>Trauma y Juego</b></label>
+    <label class="course"><input type="checkbox" value="victimologia-subjetividad-victima"><b>Victimología, un enfoque centrado en la subjetividad de la víctima</b></label>
+  </div>
+
+  <div class="counter" id="counter">0 cursos seleccionados</div>
+
+  <div class="actions">
+    <button id="grant">Habilitar seleccionados</button>
+    <button class="secondary" id="revoke">Quitar seleccionados</button>
+  </div>
+  <div id="msg"></div>
+</div>
+
+<script>
+const boxes=[...document.querySelectorAll('#courses input[type="checkbox"]')];
+const counter=document.getElementById('counter');
+const msg=document.getElementById('msg');
+const grant=document.getElementById('grant');
+const revoke=document.getElementById('revoke');
+
+function selected(){ return boxes.filter(b=>b.checked).map(b=>b.value); }
+function update(){
+  const n=selected().length;
+  counter.textContent=n+(n===1?' curso seleccionado':' cursos seleccionados');
+}
+boxes.forEach(b=>b.addEventListener('change',update));
+document.getElementById('all').onclick=()=>{boxes.forEach(b=>b.checked=true);update()};
+document.getElementById('none').onclick=()=>{boxes.forEach(b=>b.checked=false);update()};
+
+async function act(active){
+  const courseIds=selected();
+  const email=document.getElementById('email').value.trim();
+  if(!email){msg.className='err';msg.textContent='Ingresa el email del alumno.';return}
+  if(!courseIds.length){msg.className='err';msg.textContent='Selecciona al menos un curso.';return}
+
+  msg.className='';
+  msg.textContent='Procesando '+courseIds.length+' curso(s)...';
+  grant.disabled=true; revoke.disabled=true;
+
+  try{
+    const r=await fetch('/api/manual-access',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json',
+        'x-admin-key':document.getElementById('key').value
+      },
+      body:JSON.stringify({
+        email,
+        name:document.getElementById('name').value.trim(),
+        courseIds,
+        active
+      })
+    });
+    const data=await r.json();
+    if(!r.ok) throw new Error(data.error||'No autorizado');
+
+    msg.className='ok';
+    if(active){
+      msg.textContent='Acceso habilitado a '+courseIds.length+' curso(s).'+
+        (data.created?' El alumno recibirá un email para crear su contraseña.':' Si ya estaba conectado, debe cerrar sesión y volver a ingresar para actualizar sus permisos.');
+    }else{
+      msg.textContent='Acceso retirado de '+courseIds.length+' curso(s). Si el alumno estaba conectado, debe cerrar sesión y volver a ingresar.';
+    }
+  }catch(e){
+    msg.className='err';
+    msg.textContent='Error: '+e.message;
+  }finally{
+    grant.disabled=false; revoke.disabled=false;
+  }
+}
+grant.onclick=()=>act(true);
+revoke.onclick=()=>act(false);
+update();
+</script>
+</body>
+</html>
