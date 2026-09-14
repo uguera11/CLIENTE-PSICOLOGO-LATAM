@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- HOTMART_CHECKOUTS_V2_DIRETO -->
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -78,7 +79,7 @@ if(!c){
 } else {
   document.title=c.title+' | Lic. Mauricio Berón';
   const wa='https://wa.me/59899462504?text='+encodeURIComponent('Hola Lic. Mauricio Berón, quiero inscribirme en el curso: '+c.title+' (USD 59). Quisiera recibir los datos para transferencia si corresponde.');
-  const checkout=checkouts[c.slug] || wa;
+  const checkout=checkouts[c.slug] || '';
   const program=c.focus.map((x,i)=>`<div class="program-row"><span class="num">0${i+1}</span><div><strong>${i===0?'Fundamentos y marco conceptual':i===1?'Desarrollo y criterios profesionales':'Aplicación e integración'}</strong><span>${x}</span></div></div>`).join('');
 
   app.innerHTML=`
@@ -144,7 +145,7 @@ if(!c){
       <p>${c.category} · Lic. Mauricio Berón</p>
       <div class="price-label">Precio de la formación</div><div class="price">USD 59</div>
       <div class="note"><strong>Pago seguro y acceso mediante Hotmart</strong><br>Disponible para alumnos de Uruguay y del exterior.</div>
-      <a class="buybtn" href="${checkout}" target="_blank" rel="noopener">Comprar y acceder en Hotmart</a>
+      ${checkout ? `<a class="buybtn" href="${checkout}" target="_blank" rel="noopener">Comprar y acceder en Hotmart</a>` : `<div class="buybtn" style="opacity:.55;cursor:not-allowed">Checkout no disponible</div>`}
       <div class="hotmart-note">Pago procesado de forma segura por Hotmart.</div>
       <a class="ask" href="${wa}" target="_blank" rel="noopener">Pago por transferencia en Uruguay — solicitar por WhatsApp</a>
       <div class="transfer-note">Si reside en Uruguay y prefiere pagar mediante transferencia bancaria, solicite los datos por WhatsApp. El acceso se habilitará una vez confirmado el pago.</div>
