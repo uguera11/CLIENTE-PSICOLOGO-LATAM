@@ -332,7 +332,7 @@
 
     .featured-band{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .feature-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:58px;align-items:center}
-    .feature-stage{position:relative;min-height:420px;border-radius:20px;background-image:linear-gradient(180deg,rgba(14,24,21,.03),rgba(14,24,21,.16)),url('assets/feature-formacion.webp');background-size:cover;background-position:center;overflow:hidden;box-shadow:0 24px 54px rgba(27,45,38,.10)}
+    .feature-stage{position:relative;min-height:420px;border-radius:20px;background-image:linear-gradient(180deg,rgba(14,24,21,.03),rgba(14,24,21,.16)),url('/cursos/assets-v2/feature-formacion.webp');background-size:cover;background-position:center;overflow:hidden;box-shadow:0 24px 54px rgba(27,45,38,.10)}
     .feature-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(12,23,19,.18) 100%);pointer-events:none}
     .feature-stage:after{display:none}
     .feature-floating{position:absolute;left:24px;right:24px;bottom:24px;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.8);border-radius:15px;padding:18px;box-shadow:0 20px 48px rgba(0,0,0,.16)}
@@ -430,13 +430,6 @@
 
   
 
-
-.student-access-bar{background:#17131d;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
-.student-access-inner{min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.student-access-copy{font-size:11px;color:#d9d2df}.student-access-copy strong{color:#fff}
-.student-login-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;border-radius:8px;background:#fff;color:#5d4b72;font-size:10px;font-weight:800}
-@media(max-width:720px){.student-access-inner{padding:10px 0;align-items:center}.student-access-copy{font-size:10px}.student-login-btn{font-size:10px;padding:10px 12px}}
-
 </style>
 </head>
 <body>
@@ -457,14 +450,6 @@
     </div>
   </header>
 
-<div class="student-access-bar">
-  <div class="wrap student-access-inner">
-    <div class="student-access-copy"><strong>¿Ya eres alumno?</strong> Ingresa a tu cuenta para continuar tus cursos.</div>
-    <a class="student-login-btn" href="/cursos/login/">Ingresar a mi cuenta →</a>
-  </div>
-</div>
-
-
   <main>
     <section class="hero">
       <div class="wrap">
@@ -484,7 +469,7 @@
             </div>
           </div>
           <div class="hero-visual reveal" aria-label="Lic. Mauricio Berón y formación destacada">
-            <img class="hero-photo" src="assets/mauricio.webp" alt="Lic. Mauricio Berón" />
+            <img class="hero-photo" src="/cursos/assets-v2/mauricio.webp" alt="Lic. Mauricio Berón" />
             <div class="hero-person">Lic. Mauricio Berón</div>
             <div class="course-visual-tag"><b>22+</b>Años de experiencia</div>
             <div class="course-visual-meta"><span>10 formaciones</span><span>Clínica</span><span>Forense</span></div>
@@ -540,7 +525,7 @@
         <div class="course-grid" id="courseGrid">
           <article class="course-card reveal" data-category="clinica" data-search="conductas sexuales abusivas entre niños y adolescentes infancia y adolescencia">
             <div class="cover">
-              <img src="assets/conductas-sexuales-abusivas.webp" alt="Conductas sexuales abusivas entre niños y adolescentes" loading="lazy">
+              <img src="/cursos/assets-v2/conductas-sexuales-abusivas.webp" alt="Conductas sexuales abusivas entre niños y adolescentes" loading="lazy">
               <span class="badge">Infancia y adolescencia</span>
             </div>
             <div class="card-body">
@@ -550,14 +535,14 @@
               <p class="desc">Formación centrada en la comprensión y el abordaje profesional de conductas sexuales abusivas en población infantojuvenil.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=conductas-sexuales-abusivas-ninos-adolescentes" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=conductas-sexuales-abusivas-ninos-adolescentes" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="forense" data-search="curso entrevista forense presuntos agresores sexuales psicología forense">
             <div class="cover">
-              <img src="assets/entrevista-forense-agresores.webp" alt="Curso Entrevista Forense Presuntos Agresores Sexuales" loading="lazy">
+              <img src="/cursos/assets-v2/entrevista-forense-agresores.webp" alt="Curso Entrevista Forense Presuntos Agresores Sexuales" loading="lazy">
               <span class="badge">Psicología forense</span>
             </div>
             <div class="card-body">
@@ -567,14 +552,14 @@
               <p class="desc">Curso orientado al trabajo de entrevista forense en contextos de evaluación de presuntos agresores sexuales.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=entrevista-forense-presuntos-agresores-sexuales" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=entrevista-forense-presuntos-agresores-sexuales" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="forense evaluacion" data-search="entrevista forense y análisis del testimonio psicología forense">
             <div class="cover">
-              <img src="assets/entrevista-forense-testimonio.webp" alt="Entrevista Forense y Análisis del Testimonio" loading="lazy">
+              <img src="/cursos/assets-v2/entrevista-forense-testimonio.webp" alt="Entrevista Forense y Análisis del Testimonio" loading="lazy">
               <span class="badge">Psicología forense</span>
             </div>
             <div class="card-body">
@@ -584,14 +569,14 @@
               <p class="desc">Formación sobre entrevista forense y criterios de análisis del testimonio en contextos de evaluación profesional.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=entrevista-forense-analisis-testimonio" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=entrevista-forense-analisis-testimonio" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="forense evaluacion victimologia" data-search="evaluación forense y victimológica de la parentalidad y condiciones parentales forense · familia">
             <div class="cover">
-              <img src="assets/parentalidad-victimologica.webp" alt="Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales" loading="lazy">
+              <img src="/cursos/assets-v2/parentalidad-victimologica.webp" alt="Evaluación Forense y Victimológica de la Parentalidad y Condiciones Parentales" loading="lazy">
               <span class="badge">Forense · Familia</span>
             </div>
             <div class="card-body">
@@ -601,14 +586,14 @@
               <p class="desc">Propuesta formativa enfocada en la evaluación forense y victimológica vinculada a parentalidad y condiciones parentales.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=evaluacion-forense-victimologica-parentalidad" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=evaluacion-forense-victimologica-parentalidad" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="neuro evaluacion forense" data-search="introducción al abordaje neuropsicológico forense en la evaluación pericial neuropsicología forense">
             <div class="cover">
-              <img src="assets/neuropsicologia-forense.webp" alt="Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial" loading="lazy">
+              <img src="/cursos/assets-v2/neuropsicologia-forense.webp" alt="Introducción al Abordaje Neuropsicológico Forense en la Evaluación Pericial" loading="lazy">
               <span class="badge">Neuropsicología forense</span>
             </div>
             <div class="card-body">
@@ -618,14 +603,14 @@
               <p class="desc">Introducción al cruce entre neuropsicología, psicología forense y evaluación pericial.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=abordaje-neuropsicologico-forense-evaluacion-pericial" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=abordaje-neuropsicologico-forense-evaluacion-pericial" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="masterclass forense evaluacion" data-search="master class - pericia psicológica forense masterclass · forense">
             <div class="cover">
-              <img src="assets/pericia-psicologica-forense.webp" alt="MASTER CLASS - PERICIA PSICOLÓGICA FORENSE" loading="lazy">
+              <img src="/cursos/assets-v2/pericia-psicologica-forense.webp" alt="MASTER CLASS - PERICIA PSICOLÓGICA FORENSE" loading="lazy">
               <span class="badge">Masterclass · Forense</span>
             </div>
             <div class="card-body">
@@ -635,14 +620,14 @@
               <p class="desc">Masterclass dedicada a la pericia psicológica forense y a los criterios profesionales implicados en su elaboración.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=pericia-psicologica-forense" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=pericia-psicologica-forense" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="masterclass evaluacion forense" data-search="masterclass sobre evaluación psicológica para porte y tenencia de armas masterclass · evaluación">
             <div class="cover">
-              <img src="assets/porte-tenencia-armas.webp" alt="Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas" loading="lazy">
+              <img src="/cursos/assets-v2/porte-tenencia-armas.webp" alt="Masterclass sobre Evaluación Psicológica para Porte y Tenencia de Armas" loading="lazy">
               <span class="badge">Masterclass · Evaluación</span>
             </div>
             <div class="card-body">
@@ -652,14 +637,14 @@
               <p class="desc">Formación sobre evaluación psicológica aplicada a contextos de porte y tenencia de armas.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=evaluacion-psicologica-porte-tenencia-armas" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=evaluacion-psicologica-porte-tenencia-armas" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="clinica trauma" data-search="trauma y disociacion – intervención desde el modelo de apego clínica · trauma y apego">
             <div class="cover">
-              <img src="assets/trauma-disociacion-apego.webp" alt="TRAUMA Y DISOCIACION – INTERVENCIÓN DESDE EL MODELO DE APEGO" loading="lazy">
+              <img src="/cursos/assets-v2/trauma-disociacion-apego.webp" alt="TRAUMA Y DISOCIACION – INTERVENCIÓN DESDE EL MODELO DE APEGO" loading="lazy">
               <span class="badge">Clínica · Trauma y apego</span>
             </div>
             <div class="card-body">
@@ -669,14 +654,14 @@
               <p class="desc">Curso centrado en trauma, disociación e intervención clínica desde el modelo de apego.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=trauma-disociacion-modelo-apego" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=trauma-disociacion-modelo-apego" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="clinica trauma" data-search="trauma y juego clínica · trauma">
             <div class="cover">
-              <img src="assets/trauma-juego.webp" alt="TRAUMA Y JUEGO" loading="lazy">
+              <img src="/cursos/assets-v2/trauma-juego.webp" alt="TRAUMA Y JUEGO" loading="lazy">
               <span class="badge">Clínica · Trauma</span>
             </div>
             <div class="card-body">
@@ -686,14 +671,14 @@
               <p class="desc">Formación que vincula trauma y juego como ejes de comprensión e intervención en la práctica clínica.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=trauma-y-juego" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=trauma-y-juego" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
 
           <article class="course-card reveal" data-category="victimologia forense" data-search="victimología, un enfoque centrado en la subjetividad de la víctima victimología">
             <div class="cover">
-              <img src="assets/victimologia-subjetividad.webp" alt="Victimología, un enfoque centrado en la subjetividad de la víctima" loading="lazy">
+              <img src="/cursos/assets-v2/victimologia-subjetividad.webp" alt="Victimología, un enfoque centrado en la subjetividad de la víctima" loading="lazy">
               <span class="badge">Victimología</span>
             </div>
             <div class="card-body">
@@ -703,7 +688,7 @@
               <p class="desc">Propuesta centrada en victimología y en la comprensión de la subjetividad de la víctima.</p>
               <div class="card-footer">
                 <span class="course-mode price-tag">USD 59</span>
-                <a class="course-cta" href="curso.html?slug=victimologia-subjetividad-victima" target="_blank" rel="noopener">Ver curso <i>→</i></a>
+                <a class="course-cta" href="/cursos/detalhe.html?slug=victimologia-subjetividad-victima" target="_blank" rel="noopener">Ver curso <i>→</i></a>
               </div>
             </div>
           </article>
